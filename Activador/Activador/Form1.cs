@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using global::System.ComponentModel;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -20,26 +20,22 @@ namespace Activador
 
         string key = "b14ca9888a5e4233aace2ea2615a1916";
 
-        /*
-             s = textBox1.Text;
-            s = Encriptacion.EncryptString(key, s);
-            MessageBox.Show(s);
-
-
-        MessageBox.Show(Encriptacion.DecryptString(key, s));
-
-
-        */
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            Encriptacion A = new Encriptacion();
+            string s = A.EncryptString(key, textBox1.Text);
+            Registro B = new Registro();
+            B.CreateRegister();
+            B.ReadSubKey(s);
         }
 
 
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Registro B = new Registro();
+            B.DeleteSubKey("LicenciaActiva");
             
         }
     }
