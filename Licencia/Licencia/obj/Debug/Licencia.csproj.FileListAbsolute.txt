@@ -1,0 +1,6 @@
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Licencia\Licencia\bin\Debug\Licencia.dll
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Licencia\Licencia\bin\Debug\Licencia.pdb
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Licencia\Licencia\obj\Debug\Licencia.csproj.AssemblyReference.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Licencia\Licencia\obj\Debug\Licencia.csproj.CoreCompileInputs.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Licencia\Licencia\obj\Debug\Licencia.dll
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Licencia\Licencia\obj\Debug\Licencia.pdb

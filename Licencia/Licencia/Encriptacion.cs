@@ -6,82 +6,63 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
 
+
 namespace Licencia
 {
     public class Encriptacion
     {
-        public static byte[] EncryptStringToBytes(string codigo, byte[] Key, byte[] IV)
+        public string EncryptString(string key, string plainText)
         {
-            byte[] encrypted;
-            using (Rijndael rijAlg = Rijndael.Create())
+            byte[] iv = new byte[16];
+            byte[] array;
+
+            using (Aes aes = Aes.Create())
             {
-                rijAlg.Key = Key;
-                rijAlg.IV = IV;
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = iv;
 
- 
-                ICryptoTransform encryptor = rijAlg.CreateEncryptor(rijAlg.Key, rijAlg.IV);
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
 
-                using (MemoryStream msEncrypt = new MemoryStream())
+                using (MemoryStream memoryStream = new MemoryStream())
                 {
-                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, encryptor, CryptoStreamMode.Write))
                     {
-                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                        using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
                         {
-
-                            swEncrypt.Write(codigo);
+                            streamWriter.Write(plainText);
                         }
-                        encrypted = msEncrypt.ToArray();
-                    }
-                }
-            }
-            return encrypted;
-        }
-        public string Encriptar(string codigo)
-        {
-            Rijndael myEncrypt  = Rijndael.Create();
-            byte[] encrypted = EncryptStringToBytes(codigo, myEncrypt.Key, myEncrypt.IV);
 
-
-            return encrypted.ToString();
-        }
-
-
-        static string DecryptStringFromBytes(byte[] cipherText, byte[] Key, byte[] IV)
-        {
-  
-            string plaintext = null;
-
-            using (Rijndael rijAlg = Rijndael.Create())
-            {
-                rijAlg.Key = Key;
-                rijAlg.IV = IV;
-
-                ICryptoTransform decryptor = rijAlg.CreateDecryptor(rijAlg.Key, rijAlg.IV);
-
-                using (MemoryStream msDecrypt = new MemoryStream(cipherText))
-                {
-                    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
-                    {
-                        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
-                        {
-
-                            // Read the decrypted bytes from the decrypting stream
-                            // and place them in a string.
-                            plaintext = srDecrypt.ReadToEnd();
-                        }
+                        array = memoryStream.ToArray();
                     }
                 }
             }
 
-            return plaintext;
+            return Convert.ToBase64String(array);
         }
- 
-        public string Desencriptar(string codigo)
+
+        public string DecryptString(string key, string cipherText)
         {
-            byte[] descrypt = Encoding.ASCII.GetBytes(codigo); 
-            Rijndael myEncrypt = Rijndael.Create();
-            string roundtrip = DecryptStringFromBytes(descrypt, myEncrypt.Key, myEncrypt.IV);
-            return roundtrip;
+            byte[] iv = new byte[16];
+            byte[] buffer = Convert.FromBase64String(cipherText);
+
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = iv;
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream(buffer))
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                        {
+                            return streamReader.ReadToEnd();
+                        }
+                    }
+                }
+            }
         }
+
     }
 }
