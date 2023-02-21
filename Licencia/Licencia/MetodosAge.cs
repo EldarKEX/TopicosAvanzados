@@ -40,6 +40,20 @@ namespace Licencia
             
         }
 
+        public void CargarInfo2(TextBox nombre, TextBox numero, TextBox correo, TextBox domicilio, string id)
+        {
+           foreach (ClassOfContacts.InfoContactos info in dataContact)
+           {
+                if (info.Id == id)
+                {
+                    nombre.Text = info.Name;
+                    numero.Text = info.Number;
+                    correo.Text = info.Correo;
+                    domicilio.Text = info.Address;
+                    return;
+                }
+           }
+        }
         public void CargarArbol()
         {
             tVSubOne.Nodes.Clear();

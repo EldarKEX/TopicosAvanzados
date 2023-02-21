@@ -29,7 +29,7 @@ namespace Agenda
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Contacto");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Contactos");
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,13 +44,13 @@ namespace Agenda
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tNumber = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dGVcontactos = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,17 +72,18 @@ namespace Agenda
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
             treeNode2.Name = "Nodo0";
-            treeNode2.Text = "Contacto";
+            treeNode2.Text = "Contactos";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode2});
-            this.treeView1.Size = new System.Drawing.Size(200, 397);
+            this.treeView1.Size = new System.Drawing.Size(200, 369);
             this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // bAgregar
             // 
-            this.bAgregar.Location = new System.Drawing.Point(1, 420);
+            this.bAgregar.Location = new System.Drawing.Point(3, 375);
             this.bAgregar.Name = "bAgregar";
-            this.bAgregar.Size = new System.Drawing.Size(59, 41);
+            this.bAgregar.Size = new System.Drawing.Size(191, 41);
             this.bAgregar.TabIndex = 3;
             this.bAgregar.Text = "Agregar";
             this.bAgregar.UseVisualStyleBackColor = true;
@@ -90,9 +91,9 @@ namespace Agenda
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(139, 420);
+            this.bEliminar.Location = new System.Drawing.Point(3, 469);
             this.bEliminar.Name = "bEliminar";
-            this.bEliminar.Size = new System.Drawing.Size(57, 41);
+            this.bEliminar.Size = new System.Drawing.Size(191, 41);
             this.bEliminar.TabIndex = 4;
             this.bEliminar.Text = "Eliminar";
             this.bEliminar.UseVisualStyleBackColor = true;
@@ -112,9 +113,9 @@ namespace Agenda
             // 
             // bActualizar
             // 
-            this.bActualizar.Location = new System.Drawing.Point(64, 420);
+            this.bActualizar.Location = new System.Drawing.Point(3, 422);
             this.bActualizar.Name = "bActualizar";
-            this.bActualizar.Size = new System.Drawing.Size(72, 41);
+            this.bActualizar.Size = new System.Drawing.Size(191, 41);
             this.bActualizar.TabIndex = 5;
             this.bActualizar.Text = "Actualizar";
             this.bActualizar.UseVisualStyleBackColor = true;
@@ -124,13 +125,13 @@ namespace Agenda
             // 
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.tAddress);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.tEmail);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.tNumber);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.tName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -152,15 +153,16 @@ namespace Agenda
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 37);
             this.button3.TabIndex = 5;
-            this.button3.Text = "Agregar a favoritos";
+            this.button3.Text = "Guardar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBox4
+            // tAddress
             // 
-            this.textBox4.Location = new System.Drawing.Point(31, 214);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(185, 20);
-            this.textBox4.TabIndex = 7;
+            this.tAddress.Location = new System.Drawing.Point(31, 214);
+            this.tAddress.Name = "tAddress";
+            this.tAddress.Size = new System.Drawing.Size(185, 20);
+            this.tAddress.TabIndex = 7;
             // 
             // label4
             // 
@@ -171,12 +173,12 @@ namespace Agenda
             this.label4.TabIndex = 6;
             this.label4.Text = "Domicilio:";
             // 
-            // textBox3
+            // tEmail
             // 
-            this.textBox3.Location = new System.Drawing.Point(31, 156);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(185, 20);
-            this.textBox3.TabIndex = 5;
+            this.tEmail.Location = new System.Drawing.Point(31, 156);
+            this.tEmail.Name = "tEmail";
+            this.tEmail.Size = new System.Drawing.Size(185, 20);
+            this.tEmail.TabIndex = 5;
             // 
             // label3
             // 
@@ -187,12 +189,12 @@ namespace Agenda
             this.label3.TabIndex = 4;
             this.label3.Text = "Correo:";
             // 
-            // textBox2
+            // tNumber
             // 
-            this.textBox2.Location = new System.Drawing.Point(31, 95);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 20);
-            this.textBox2.TabIndex = 3;
+            this.tNumber.Location = new System.Drawing.Point(31, 95);
+            this.tNumber.Name = "tNumber";
+            this.tNumber.Size = new System.Drawing.Size(185, 20);
+            this.tNumber.TabIndex = 3;
             // 
             // label2
             // 
@@ -203,12 +205,12 @@ namespace Agenda
             this.label2.TabIndex = 2;
             this.label2.Text = "Numero:";
             // 
-            // textBox1
+            // tName
             // 
-            this.textBox1.Location = new System.Drawing.Point(29, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 20);
-            this.textBox1.TabIndex = 1;
+            this.tName.Location = new System.Drawing.Point(29, 36);
+            this.tName.Name = "tName";
+            this.tName.Size = new System.Drawing.Size(185, 20);
+            this.tName.TabIndex = 1;
             // 
             // label1
             // 
@@ -322,13 +324,13 @@ namespace Agenda
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tAddress;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tEmail;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tNumber;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dGVcontactos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

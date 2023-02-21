@@ -10,12 +10,27 @@ using System.Windows.Forms;
 using Licencia;
 
 namespace Agenda
-{
+{//fdgdfgdfg
     public partial class Form1 : Form
     {
         AddTab tab1;
+        Encriptacion idKey = new Encriptacion();
+        Registro register = new Registro();
+
+        void inicio()
+        {
+
+            string key = idKey.EncryptString("b14ca9888a5e4233aace2ea2615a1916", "holamundo");
+            if (!register.ReadPrincipal(key))
+            {
+                MessageBox.Show("Error en la activacion de la clave del producto");
+                this.Close();
+            }
+        }
+
         public Form1()
         {
+            inicio();
             InitializeComponent();
             tab1 = new AddTab(dGVcontactos, treeView1);
             tab1.mAge.CargarInfo();
@@ -52,6 +67,20 @@ namespace Agenda
             {
                 Console.WriteLine(ex.Message);
             }
+            
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if(treeView1.SelectedNode.Text == "Contactos")
+            {
+                return;
+            }
+            tab1.mAge.CargarInfo2(tName, tNumber, tEmail, tAddress, treeView1.SelectedNode.Tag.ToString());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
             
         }
     }
