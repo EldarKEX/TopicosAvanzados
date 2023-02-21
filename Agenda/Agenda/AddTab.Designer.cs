@@ -29,24 +29,24 @@ namespace Agenda
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tNumber = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox4
+            // tAddress
             // 
-            this.textBox4.Location = new System.Drawing.Point(28, 220);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(185, 20);
-            this.textBox4.TabIndex = 15;
+            this.tAddress.Location = new System.Drawing.Point(28, 220);
+            this.tAddress.Name = "tAddress";
+            this.tAddress.Size = new System.Drawing.Size(185, 20);
+            this.tAddress.TabIndex = 15;
             // 
             // label4
             // 
@@ -57,12 +57,12 @@ namespace Agenda
             this.label4.TabIndex = 14;
             this.label4.Text = "Domicilio:";
             // 
-            // textBox3
+            // tEmail
             // 
-            this.textBox3.Location = new System.Drawing.Point(28, 162);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(185, 20);
-            this.textBox3.TabIndex = 13;
+            this.tEmail.Location = new System.Drawing.Point(28, 162);
+            this.tEmail.Name = "tEmail";
+            this.tEmail.Size = new System.Drawing.Size(185, 20);
+            this.tEmail.TabIndex = 13;
             // 
             // label3
             // 
@@ -73,12 +73,12 @@ namespace Agenda
             this.label3.TabIndex = 12;
             this.label3.Text = "Correo:";
             // 
-            // textBox2
+            // tNumber
             // 
-            this.textBox2.Location = new System.Drawing.Point(28, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 20);
-            this.textBox2.TabIndex = 11;
+            this.tNumber.Location = new System.Drawing.Point(28, 101);
+            this.tNumber.Name = "tNumber";
+            this.tNumber.Size = new System.Drawing.Size(185, 20);
+            this.tNumber.TabIndex = 11;
             // 
             // label2
             // 
@@ -89,12 +89,12 @@ namespace Agenda
             this.label2.TabIndex = 10;
             this.label2.Text = "Numero:";
             // 
-            // textBox1
+            // tName
             // 
-            this.textBox1.Location = new System.Drawing.Point(26, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 20);
-            this.textBox1.TabIndex = 9;
+            this.tName.Location = new System.Drawing.Point(26, 42);
+            this.tName.Name = "tName";
+            this.tName.Size = new System.Drawing.Size(185, 20);
+            this.tName.TabIndex = 9;
             // 
             // label1
             // 
@@ -132,13 +132,13 @@ namespace Agenda
             this.ClientSize = new System.Drawing.Size(243, 326);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.tAddress);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tEmail);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tNumber);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tName);
             this.Controls.Add(this.label1);
             this.Name = "AddTab";
             this.Text = "AddTab";
@@ -149,13 +149,13 @@ namespace Agenda
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tAddress;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tEmail;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tNumber;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

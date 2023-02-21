@@ -13,10 +13,12 @@ namespace Agenda
 {
     public partial class Form1 : Form
     {
-
+        AddTab tab1;
         public Form1()
         {
             InitializeComponent();
+            tab1 = new AddTab(dGVcontactos, treeView1);
+            tab1.mAge.CargarInfo();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,9 +33,14 @@ namespace Agenda
 
         private void bAgregar_Click(object sender, EventArgs e)
         {
-            AddTab tab1 = new AddTab(dGVcontactos,treeView1);
+            
             tab1.ShowDialog();
             
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            tab1.mAge.CargarArbol();
         }
     }
 }

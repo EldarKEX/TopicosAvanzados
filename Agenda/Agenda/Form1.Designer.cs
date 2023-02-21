@@ -40,6 +40,7 @@ namespace Agenda
             this.bAgregar = new System.Windows.Forms.Button();
             this.bEliminar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bActualizar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -79,7 +80,7 @@ namespace Agenda
             // 
             // bAgregar
             // 
-            this.bAgregar.Location = new System.Drawing.Point(30, 420);
+            this.bAgregar.Location = new System.Drawing.Point(1, 420);
             this.bAgregar.Name = "bAgregar";
             this.bAgregar.Size = new System.Drawing.Size(59, 41);
             this.bAgregar.TabIndex = 3;
@@ -89,7 +90,7 @@ namespace Agenda
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(110, 420);
+            this.bEliminar.Location = new System.Drawing.Point(139, 420);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(57, 41);
             this.bEliminar.TabIndex = 4;
@@ -98,6 +99,7 @@ namespace Agenda
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.bActualizar);
             this.panel2.Controls.Add(this.treeView1);
             this.panel2.Controls.Add(this.bAgregar);
             this.panel2.Controls.Add(this.bEliminar);
@@ -106,6 +108,16 @@ namespace Agenda
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 523);
             this.panel2.TabIndex = 6;
+            // 
+            // bActualizar
+            // 
+            this.bActualizar.Location = new System.Drawing.Point(64, 420);
+            this.bActualizar.Name = "bActualizar";
+            this.bActualizar.Size = new System.Drawing.Size(72, 41);
+            this.bActualizar.TabIndex = 5;
+            this.bActualizar.Text = "Actualizar";
+            this.bActualizar.UseVisualStyleBackColor = true;
+            this.bActualizar.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // panel1
             // 
@@ -323,6 +335,7 @@ namespace Agenda
         private System.Windows.Forms.DataGridViewTextBoxColumn column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button bActualizar;
     }
 }
 

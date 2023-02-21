@@ -7,21 +7,24 @@ using System.Windows.Forms;
 using System.IO;
 
 
+
 namespace Licencia
 {
     public class MetodosAge
     {
         String line = "a";
         int i = 0;
-        List<ClassOfContacts.InfoContactos> dataContact = new List<ClassOfContacts.InfoContactos>(); 
-        
-        public MetodosAge()
+        List<ClassOfContacts.InfoContactos> dataContact = new List<ClassOfContacts.InfoContactos>();
+        public TreeView tVSubOne;
+        public DataGridView main;
+        public MetodosAge(DataGridView _main, TreeView _tVSubOne)
         {
-          
+            tVSubOne = _tVSubOne;
+            main = _main;
         }
 
         
-        void separarInfo(string linea,DataGridView main,TreeView tVSubOne)
+        void separarInfo(string linea)
         {
             if(linea == null)
             {
@@ -30,11 +33,6 @@ namespace Licencia
 
             string[] words = linea.Split('/');
 
-
-            var parentNode = tVSubOne.Nodes[0];
-            parentNode.Nodes.Add(words[0]);
-            parentNode.LastNode.Tag = i.ToString();
-
             ClassOfContacts.InfoContactos info = new ClassOfContacts.InfoContactos(i.ToString(),words[0],words[1],words[2],words[3]);
 
             dataContact.Add(info);
@@ -42,30 +40,68 @@ namespace Licencia
             
         }
 
-        public void CargarInfo(DataGridView m,TreeView n)
+        public void CargarArbol()
+        {
+            tVSubOne.Nodes.Clear();
+            tVSubOne.Nodes.Add("Contactos");
+
+            var parentNode = tVSubOne.Nodes[0];
+            //parentNode.Nodes.Add(words[0]);
+
+            foreach (ClassOfContacts.InfoContactos node in dataContact)
+            {
+                parentNode.Nodes.Add(node.Name);
+                parentNode.LastNode.Tag = i.ToString();
+            }
+           
+        }
+
+        public void CargarInfo()
         {
             FileStream f = new FileStream("data.txt", FileMode.OpenOrCreate);
             StreamReader sr = new StreamReader(f);
 
-            n.Nodes.Clear();
-            n.Nodes.Add("Contactos");
+            //CargarArbol(n);
 
             i = 0;
 
             while (line != null)
             { 
                 line = sr.ReadLine();
-                separarInfo(line,m,n);
+                separarInfo(line);
             }
 
-            
 
-            f.Close();
             sr.Close();
+            f.Close();
+            
         }
-        public void GuardarDatos(string nombre, string numero, string correo, string domicilio)
+
+        public void AgregarDatos(string nombre, string numero, string correo, string domicilio)
         {
-            string principal;
+            ClassOfContacts.InfoContactos info = new ClassOfContacts.InfoContactos(i.ToString(), nombre, numero, correo, domicilio);
+            dataContact.Add(info);
+            i++;
+            GuardarDatos();
+        }
+
+        public void GuardarDatos()
+        {
+            FileStream f = new FileStream("data.txt", FileMode.OpenOrCreate);
+            StreamWriter sr = new StreamWriter(f);
+
+            foreach(ClassOfContacts.InfoContactos info in dataContact)
+            {
+                string line = info.Name + "/" + info.Number + "/" + info.Address + "/" + info.Correo;
+                sr.WriteLine(line);
+            }
+
+
+
+            sr.Close();
+            f.Close();
+
+            CargarInfo();
         }
     }
 }

@@ -12,21 +12,24 @@ namespace Agenda
 {
     public partial class AddTab : Form
     {
-        public MetodosAge mAge = new MetodosAge();
+
         public DataGridView main;
         public TreeView tVOne;
+        public MetodosAge mAge;
+        
         public AddTab(DataGridView _main, TreeView _tVOne)
         {
             InitializeComponent();
             main = _main;
             tVOne = _tVOne;
-            
+            mAge = new MetodosAge(main,tVOne);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            mAge.CargarInfo(main,tVOne);
+            mAge.AgregarDatos(tName.Text, tNumber.Text, tEmail.Text, tAddress.Text);
+            Close();
+            //mAge.CargarInfo(main,tVOne);
         }
 
         private void button2_Click(object sender, EventArgs e)
