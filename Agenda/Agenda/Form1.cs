@@ -13,7 +13,7 @@ namespace Agenda
 {
     public partial class Form1 : Form
     {
-        Class1 n = new Class1();
+
         public Form1()
         {
             InitializeComponent();
@@ -21,7 +21,19 @@ namespace Agenda
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox1.Text = n.sum(5, 3).ToString();
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bAgregar_Click(object sender, EventArgs e)
+        {
+            AddTab tab1 = new AddTab(dGVcontactos,treeView1);
+            tab1.ShowDialog();
+            
         }
     }
 }
