@@ -48,10 +48,13 @@ namespace Licencia
             var parentNode = tVSubOne.Nodes[0];
             //parentNode.Nodes.Add(words[0]);
 
+            int g = 0;
+
             foreach (ClassOfContacts.InfoContactos node in dataContact)
             {
                 parentNode.Nodes.Add(node.Name);
-                parentNode.LastNode.Tag = i.ToString();
+                parentNode.LastNode.Tag = g.ToString();
+                g++;
             }
            
         }
@@ -87,6 +90,10 @@ namespace Licencia
 
         public void GuardarDatos()
         {
+            if (File.Exists("data.txt"))
+            {
+                File.Delete("data.txt");
+            }
             FileStream f = new FileStream("data.txt", FileMode.OpenOrCreate);
             StreamWriter sr = new StreamWriter(f);
 
@@ -102,6 +109,21 @@ namespace Licencia
             f.Close();
 
             CargarInfo();
+        }
+
+        public void EliminarDatos(string id)
+        {
+            foreach (ClassOfContacts.InfoContactos info in dataContact)
+            {
+                if(info.Id == id)
+                {
+                    dataContact.RemoveAt(int.Parse(id));
+                    break;
+                }
+            }
+
+            GuardarDatos();
+            CargarArbol();
         }
     }
 }

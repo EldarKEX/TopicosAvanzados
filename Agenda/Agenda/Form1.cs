@@ -42,5 +42,17 @@ namespace Agenda
         {
             tab1.mAge.CargarArbol();
         }
+
+        private void bEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tab1.mAge.EliminarDatos(treeView1.SelectedNode.Tag.ToString());
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
+        }
     }
 }
