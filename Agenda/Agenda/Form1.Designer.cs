@@ -30,6 +30,7 @@ namespace Agenda
         private void InitializeComponent()
         {
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Contactos");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -58,6 +59,7 @@ namespace Agenda
             this.column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tLimpiar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -101,6 +103,7 @@ namespace Agenda
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.tLimpiar);
             this.panel2.Controls.Add(this.bActualizar);
             this.panel2.Controls.Add(this.treeView1);
             this.panel2.Controls.Add(this.bAgregar);
@@ -115,7 +118,7 @@ namespace Agenda
             // 
             this.bActualizar.Location = new System.Drawing.Point(3, 422);
             this.bActualizar.Name = "bActualizar";
-            this.bActualizar.Size = new System.Drawing.Size(191, 41);
+            this.bActualizar.Size = new System.Drawing.Size(88, 41);
             this.bActualizar.TabIndex = 5;
             this.bActualizar.Text = "Actualizar";
             this.bActualizar.UseVisualStyleBackColor = true;
@@ -141,9 +144,12 @@ namespace Agenda
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(260, 36);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(274, 36);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(219, 198);
+            this.pictureBox1.Size = new System.Drawing.Size(192, 198);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
@@ -296,6 +302,16 @@ namespace Agenda
             this.panel3.Size = new System.Drawing.Size(600, 523);
             this.panel3.TabIndex = 8;
             // 
+            // tLimpiar
+            // 
+            this.tLimpiar.Location = new System.Drawing.Point(106, 422);
+            this.tLimpiar.Name = "tLimpiar";
+            this.tLimpiar.Size = new System.Drawing.Size(88, 41);
+            this.tLimpiar.TabIndex = 6;
+            this.tLimpiar.Text = "Limpiar";
+            this.tLimpiar.UseVisualStyleBackColor = true;
+            this.tLimpiar.Click += new System.EventHandler(this.tLimpiar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,6 +355,7 @@ namespace Agenda
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button bActualizar;
+        private System.Windows.Forms.Button tLimpiar;
     }
 }
 

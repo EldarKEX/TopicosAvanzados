@@ -23,6 +23,24 @@ namespace Licencia
             main = _main;
         }
 
+
+        public void DeleteDataGridInfo()
+        {
+            while (main.Rows.Count > 1)
+            {
+                main.Rows.Remove(main.Rows[0]);
+            }
+        }
+        public void CargarDataGrid()
+        {
+            DeleteDataGridInfo();
+            CargarInfo();
+            foreach (ClassOfContacts.InfoContactos info in dataContact)
+            {
+                main.Rows.Add(info.Name, info.Number, info.Correo, info.Address);
+            }
+            
+        }
         
         void separarInfo(string linea)
         {
@@ -40,6 +58,22 @@ namespace Licencia
             
         }
 
+        public void GuardarInfoClass(string name, string number, string email, string address, string id )
+        {
+            foreach (ClassOfContacts.InfoContactos info in dataContact)
+            {
+                if (info.Id == id)
+                {
+                    info.Name = name;
+                    info.Number = number;
+                    info.Correo = email;
+                    info.Address = address;
+                    return;
+                }
+            }
+
+        }
+
         public void CargarInfo2(TextBox nombre, TextBox numero, TextBox correo, TextBox domicilio, string id)
         {
            foreach (ClassOfContacts.InfoContactos info in dataContact)
@@ -54,13 +88,17 @@ namespace Licencia
                 }
            }
         }
-        public void CargarArbol()
+
+        public void RestablecerArbol()
         {
             tVSubOne.Nodes.Clear();
             tVSubOne.Nodes.Add("Contactos");
+        }
+        public void CargarArbol()
+        {
+            RestablecerArbol();
 
             var parentNode = tVSubOne.Nodes[0];
-            //parentNode.Nodes.Add(words[0]);
 
             int g = 0;
 
@@ -138,6 +176,7 @@ namespace Licencia
 
             GuardarDatos();
             CargarArbol();
+            CargarDataGrid();
         }
     }
 }

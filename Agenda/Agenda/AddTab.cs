@@ -27,6 +27,11 @@ namespace Agenda
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(tName.Text == ""|| tNumber.Text == "" || tEmail.Text == ""|| tAddress.Text == "")
+            {
+                MessageBox.Show("Error: Todos los campos deben de ser llenados");
+                return;
+            }
             mAge.AgregarDatos(tName.Text, tNumber.Text, tEmail.Text, tAddress.Text);
             Close();
             //mAge.CargarInfo(main,tVOne);

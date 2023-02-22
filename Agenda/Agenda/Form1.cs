@@ -16,6 +16,7 @@ namespace Agenda
         AddTab tab1;
         Encriptacion idKey = new Encriptacion();
         Registro register = new Registro();
+        bool load = false;
 
         void inicio()
         {
@@ -56,6 +57,7 @@ namespace Agenda
         private void button1_Click_1(object sender, EventArgs e)
         {
             tab1.mAge.CargarArbol();
+            
         }
 
         private void bEliminar_Click(object sender, EventArgs e)
@@ -63,6 +65,7 @@ namespace Agenda
             try
             {
                 tab1.mAge.EliminarDatos(treeView1.SelectedNode.Tag.ToString());
+           
             }catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -74,14 +77,35 @@ namespace Agenda
         {
             if(treeView1.SelectedNode.Text == "Contactos")
             {
+                if (!load)
+                {
+                    load = true;
+                    return;
+                }
+                tab1.mAge.CargarDataGrid();
+                tab1.mAge.CargarArbol();
                 return;
             }
+
+
             tab1.mAge.CargarInfo2(tName, tNumber, tEmail, tAddress, treeView1.SelectedNode.Tag.ToString());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            if(treeView1.SelectedNode == null || treeView1.SelectedNode.Text == "Contactos")
+            {
+                MessageBox.Show("Debe seleccionar primero un nodo");
+                return;
+            }
+            tab1.mAge.GuardarInfoClass(tName.Text, tNumber.Text, tEmail.Text, tAddress.Text, treeView1.SelectedNode.Tag.ToString());
+            MessageBox.Show("Datos guardados correctamente");
+        }
+
+        private void tLimpiar_Click(object sender, EventArgs e)
+        {
+            tab1.mAge.DeleteDataGridInfo();
+            tab1.mAge.RestablecerArbol();
         }
     }
 }
