@@ -9,13 +9,14 @@ namespace Licencia.ClassOfContacts
 {
     class DataGridEdit
     {
+
+        //Borrar la info del dataGrid
         public void DeleteDataGridInfo(DataGridView dataGridView)
         {
-            while (dataGridView.Rows.Count > 1)
-            {
-                dataGridView.Rows.Remove(dataGridView.Rows[0]);
-            }
+            dataGridView.Rows.Clear();
         }
+
+        //Actualiza la info del datagrid
         public void CargarDataGrid(List<InfoContactos> listaContactos, DataGridView dataGridView)
         {
             DeleteDataGridInfo(dataGridView);

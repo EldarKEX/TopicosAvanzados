@@ -16,11 +16,14 @@ namespace Licencia.ClassOfContacts
            
         }
 
+
+        //Obtiene el contador de numero de id asignados
         public int GetContadorId()
         {
             return contadorId;
         }
 
+        //Cambia el valor del contador de los id asignados
         public void SetContadorId(int value)
         {
             contadorId = value;
@@ -49,6 +52,7 @@ namespace Licencia.ClassOfContacts
         {
             FileStream fileStream = new FileStream("data.txt", FileMode.OpenOrCreate);
             StreamReader streamReader = new StreamReader(fileStream);
+            listaContactos.Clear();
 
             contadorId = 0;
             string fila = ".";
@@ -62,7 +66,6 @@ namespace Licencia.ClassOfContacts
 
             streamReader.Close();
             fileStream.Close();
-
         }
 
 
@@ -76,8 +79,6 @@ namespace Licencia.ClassOfContacts
             FileStream fileStream = new FileStream("data.txt", FileMode.OpenOrCreate);
             StreamWriter streamWriter = new StreamWriter(fileStream);
 
-            
-
 
             foreach (InfoContactos info in listaContactos)
             {
@@ -85,11 +86,8 @@ namespace Licencia.ClassOfContacts
                 streamWriter.WriteLine(fila);
             }
 
-
-
             streamWriter.Close();
             fileStream.Close();
-
         }
 
 

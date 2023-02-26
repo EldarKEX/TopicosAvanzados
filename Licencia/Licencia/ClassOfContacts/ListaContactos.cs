@@ -10,11 +10,20 @@ namespace Licencia.ClassOfContacts
     class ListaContactos
     {
 
-        private List<InfoContactos> listaInfoContactos = new List<InfoContactos>();
+        private List<InfoContactos> listaInfoContactos;
 
+        public ListaContactos(List<InfoContactos> _listaInfoContactos)
+        {
+            listaInfoContactos = _listaInfoContactos;
+        }
         public List<InfoContactos> GetListaContactos()
         {
             return listaInfoContactos;
+        }
+
+        public void SetListaContactos(List<InfoContactos> _listaInfoContactos)
+        {
+            listaInfoContactos = _listaInfoContactos;
         }
 
         //Actualiza la informacion de la lista del contacto selecionado
@@ -50,15 +59,15 @@ namespace Licencia.ClassOfContacts
             }
         }
 
-        public void AgregarDatos(string nombre, string numero, string correo, string domicilio, string id)
-        {
-            InfoContactos info = new InfoContactos(id.ToString(), nombre, numero, correo, domicilio);
-            listaInfoContactos.Add(info);
-            
-            //0GuardarDatos();
+        //Agrega una fila de datos al final de la lista
+        public void AgregarFilaEnLIsta(InfoContactos infoContactos)
+        {   
+            listaInfoContactos.Add(infoContactos);
         }
 
-        public void EliminarDatos(string id)
+
+        //Elimina una fila en el id del contacto seleccionado
+        public void EliminarFilaEnLista(string id)
         {
             foreach (InfoContactos info in listaInfoContactos)
             {
@@ -67,14 +76,10 @@ namespace Licencia.ClassOfContacts
                     listaInfoContactos.RemoveAt(int.Parse(id));
                     break;
                 }
-            }
-
-            //GuardarDatos();
-            //CargarArbol();
-            //CargarDataGrid();
+            } 
         }
 
-
+       
 
     }
 }

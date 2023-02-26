@@ -19,7 +19,7 @@ namespace Licencia.ClassOfContacts
 
 
         //Carga todos todos contactos
-        public void CargarArbol(TreeView treeView, List<InfoContactos> infoContactos)
+        public void CargarArbol( List<InfoContactos> infoContactos, TreeView treeView)
         {
             RestablecerArbol(treeView);
 

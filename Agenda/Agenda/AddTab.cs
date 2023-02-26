@@ -8,20 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Licencia.ClassOfContacts;
+using Licencia;
 
 namespace Agenda
 {
     public partial class AddTab : Form
     {
 
-        private string idContactos;
-        private MetodosAgenda 
-        public AddTab(string _idContactos)
+        private MetodosAge metodosAge;
+        
+        public AddTab(MetodosAge _metodosAge)
         {
-            idContactos = _idContactos;
             InitializeComponent();
+            metodosAge = _metodosAge;
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if(tName.Text == ""|| tNumber.Text == "" || tEmail.Text == ""|| tAddress.Text == "")
@@ -30,9 +30,10 @@ namespace Agenda
                 return;
             }
 
-            InfoContactos infoContactos = new InfoContactos(idContactos,tName.Text,tNumber.Text,tEmail.Text,tAddress.Text);
+            InfoContactos infoContactos = new InfoContactos("0",tName.Text,tNumber.Text,tEmail.Text,tAddress.Text);
 
-            
+            metodosAge.AgregarUnaFila(infoContactos);
+
             Close();
         }
 
