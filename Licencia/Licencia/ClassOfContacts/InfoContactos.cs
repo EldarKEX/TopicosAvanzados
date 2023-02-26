@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Licencia.ClassOfContacts
 {
-    class InfoContactos
+    public class InfoContactos
     {
         private string name;
         private string number;

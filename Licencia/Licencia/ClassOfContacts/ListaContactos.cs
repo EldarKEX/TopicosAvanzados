@@ -16,6 +16,7 @@ namespace Licencia.ClassOfContacts
         {
             return listaInfoContactos;
         }
+
         //Actualiza la informacion de la lista del contacto selecionado
         public void ActualizarInformacionDelContacto(string name, string number, string email, string address, string id)
         {
@@ -49,7 +50,6 @@ namespace Licencia.ClassOfContacts
             }
         }
 
-
         public void AgregarDatos(string nombre, string numero, string correo, string domicilio, string id)
         {
             InfoContactos info = new InfoContactos(id.ToString(), nombre, numero, correo, domicilio);
@@ -57,7 +57,6 @@ namespace Licencia.ClassOfContacts
             
             //0GuardarDatos();
         }
-
 
         public void EliminarDatos(string id)
         {

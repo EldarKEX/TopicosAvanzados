@@ -10,14 +10,14 @@ using System.Windows.Forms;
 using Licencia;
 
 namespace Agenda
-{//fdgdfgdfg
+{
     public partial class Form1 : Form
     {
-        AddTab tab1;
-        Encriptacion idKey = new Encriptacion();
-        Registro register = new Registro();
-        bool load = false;
-
+        private AddTab tab1;
+        private Encriptacion idKey = new Encriptacion();
+        private Registro register = new Registro();
+        private bool load = false;
+        private MetodosAge;
         void inicio()
         {
 

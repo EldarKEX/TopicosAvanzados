@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassOfContacts\ArchiveEdit.cs" />
+    <Compile Include="ClassOfContacts\DataGridEdit.cs" />
     <Compile Include="ClassOfContacts\InfoContactos.cs" />
     <Compile Include="ClassOfContacts\ListaContactos.cs" />
+    <Compile Include="ClassOfContacts\TreeViewEdit.cs" />
     <Compile Include="Encriptacion.cs" />
     <Compile Include="MetodosAgenda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

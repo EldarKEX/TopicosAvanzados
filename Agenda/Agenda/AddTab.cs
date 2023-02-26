@@ -7,22 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Licencia;
+using Licencia.ClassOfContacts;
+
 namespace Agenda
 {
     public partial class AddTab : Form
     {
 
-        public DataGridView main;
-        public TreeView tVOne;
-        public MetodosAge mAge;
-        
-        public AddTab(DataGridView _main, TreeView _tVOne)
+        private string idContactos;
+        private MetodosAgenda 
+        public AddTab(string _idContactos)
         {
+            idContactos = _idContactos;
             InitializeComponent();
-            main = _main;
-            tVOne = _tVOne;
-            mAge = new MetodosAge(main,tVOne);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,7 +29,10 @@ namespace Agenda
                 MessageBox.Show("Error: Todos los campos deben de ser llenados");
                 return;
             }
-            mAge.AgregarDatos(tName.Text, tNumber.Text, tEmail.Text, tAddress.Text);
+
+            InfoContactos infoContactos = new InfoContactos(idContactos,tName.Text,tNumber.Text,tEmail.Text,tAddress.Text);
+
+            
             Close();
         }
 
