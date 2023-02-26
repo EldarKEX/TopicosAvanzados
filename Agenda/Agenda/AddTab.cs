@@ -34,7 +34,6 @@ namespace Agenda
             }
             mAge.AgregarDatos(tName.Text, tNumber.Text, tEmail.Text, tAddress.Text);
             Close();
-            //mAge.CargarInfo(main,tVOne);
         }
 
         private void button2_Click(object sender, EventArgs e)

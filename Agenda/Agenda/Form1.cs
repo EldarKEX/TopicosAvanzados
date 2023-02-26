@@ -33,18 +33,8 @@ namespace Agenda
         {
             inicio();
             InitializeComponent();
-            tab1 = new AddTab(dGVcontactos, treeView1);
+            tab1 = new AddTab(dGVcontactos, treeView);
             tab1.mAge.CargarInfo();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void bAgregar_Click(object sender, EventArgs e)
@@ -64,7 +54,7 @@ namespace Agenda
         {
             try
             {
-                tab1.mAge.EliminarDatos(treeView1.SelectedNode.Tag.ToString());
+                tab1.mAge.EliminarDatos(treeView.SelectedNode.Tag.ToString());
            
             }catch(Exception ex)
             {
@@ -75,7 +65,7 @@ namespace Agenda
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if(treeView1.SelectedNode.Text == "Contactos")
+            if(treeView.SelectedNode.Text == "Contactos")
             {
                 if (!load)
                 {
@@ -88,17 +78,17 @@ namespace Agenda
             }
 
 
-            tab1.mAge.CargarInfo2(tName, tNumber, tEmail, tAddress, treeView1.SelectedNode.Tag.ToString());
+            tab1.mAge.CargarInfo2(tName, tNumber, tEmail, tAddress, treeView.SelectedNode.Tag.ToString());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(treeView1.SelectedNode == null || treeView1.SelectedNode.Text == "Contactos")
+            if(treeView.SelectedNode == null || treeView.SelectedNode.Text == "Contactos")
             {
                 MessageBox.Show("Debe seleccionar primero un nodo");
                 return;
             }
-            tab1.mAge.GuardarInfoClass(tName.Text, tNumber.Text, tEmail.Text, tAddress.Text, treeView1.SelectedNode.Tag.ToString());
+            tab1.mAge.GuardarInfoClass(tName.Text, tNumber.Text, tEmail.Text, tAddress.Text, treeView.SelectedNode.Tag.ToString());
             MessageBox.Show("Datos guardados correctamente");
         }
 

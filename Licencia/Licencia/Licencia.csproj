@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassOfContacts\ArchiveEdit.cs" />
     <Compile Include="ClassOfContacts\InfoContactos.cs" />
+    <Compile Include="ClassOfContacts\ListaContactos.cs" />
     <Compile Include="Encriptacion.cs" />
-    <Compile Include="MetodosAge.cs" />
+    <Compile Include="MetodosAgenda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.cs" />
   </ItemGroup>
