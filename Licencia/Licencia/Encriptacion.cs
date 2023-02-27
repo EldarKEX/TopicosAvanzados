@@ -11,6 +11,8 @@ namespace Licencia
 {
     public class Encriptacion
     {
+
+        //Metodo de encriptacion (Ni me pregunten como funciona)
         public string EncryptString(string key, string plainText)
         {
             byte[] iv = new byte[16];
@@ -40,6 +42,8 @@ namespace Licencia
             return Convert.ToBase64String(array);
         }
 
+
+        //Metodo de desencriptacion (Tampoco se como funciona)
         public string DecryptString(string key, string cipherText)
         {
             byte[] iv = new byte[16];

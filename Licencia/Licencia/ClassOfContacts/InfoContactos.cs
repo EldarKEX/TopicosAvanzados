@@ -8,12 +8,16 @@ namespace Licencia.ClassOfContacts
 {
     public class InfoContactos
     {
+
+        //Propiedades
         private string name;
         private string number;
         private string correo;
         private string address;
         private string id;
            
+
+        //Constructor
         public InfoContactos(string _id,string _name, string _number, string _correo,string _address)
         {
             id = _id;
@@ -23,6 +27,13 @@ namespace Licencia.ClassOfContacts
             address = _address;
 
         }
+
+
+
+
+        //
+        //  GetterAndSetters : (Sirven para asigna u obtener el valor de las propiedades)
+        //
         public string Name
         {
             get { return name;  }

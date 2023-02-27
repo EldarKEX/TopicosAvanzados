@@ -82,6 +82,8 @@ namespace Licencia
             ActualizarDgTv();
         }
 
+
+        //Limpia el dataGrid y el treeView
         public void LimpiarDgTv()
         {
             dataGridEdit.DeleteDataGridInfo(dataGridView);

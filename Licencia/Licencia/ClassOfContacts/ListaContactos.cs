@@ -9,18 +9,26 @@ namespace Licencia.ClassOfContacts
 {
     class ListaContactos
     {
-
+        //Propiedad
         private List<InfoContactos> listaInfoContactos;
 
+
+
+        //Constructor
         public ListaContactos(List<InfoContactos> _listaInfoContactos)
         {
             listaInfoContactos = _listaInfoContactos;
         }
+
+
+        // Getter (Obtiene la lista almacenada en la clase) 
         public List<InfoContactos> GetListaContactos()
         {
             return listaInfoContactos;
         }
 
+
+        // Setter (Asigna una lista a la lista de la clase)
         public void SetListaContactos(List<InfoContactos> _listaInfoContactos)
         {
             listaInfoContactos = _listaInfoContactos;

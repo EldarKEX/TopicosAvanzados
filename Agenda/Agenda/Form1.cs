@@ -44,16 +44,22 @@ namespace Agenda
         }
 
 
+
+        //Abre un formulario para agregar un contacto a la lista
         private void bAgregar_Click(object sender, EventArgs e)
         {
             addTab.ShowDialog(); 
         }
 
+
+        //Actualiza la info del dataGrid y del TreeView
         private void button1_Click_1(object sender, EventArgs e)
         {
             metodosAge.ActualizarDgTv();  
         }
 
+
+        //Eliminar el contacto seleccionado
         private void bEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -65,6 +71,7 @@ namespace Agenda
             }            
         }
 
+        //Carga la info del nodo seleccionado
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (treeView.SelectedNode.Text == "Contactos")
@@ -83,7 +90,9 @@ namespace Agenda
             metodosAge.CargarFilaPorID(tName, tNumber, tEmail, tAddress, treeView.SelectedNode.Tag.ToString());
         }
 
-        private void button3_Click(object sender, EventArgs e)
+
+        //Actualiza la info de los contactos
+        private void bGuardar_Click(object sender, EventArgs e)
         {
             if(treeView.SelectedNode == null || treeView.SelectedNode.Text == "Contactos")
             {
@@ -94,7 +103,9 @@ namespace Agenda
             MessageBox.Show("Datos guardados correctamente");
         }
 
-        private void tLimpiar_Click(object sender, EventArgs e)
+
+        //Limpia los datos del treeView y del DataGrid
+        private void bLimpiar_Click(object sender, EventArgs e)
         {
             metodosAge.LimpiarDgTv();
         }

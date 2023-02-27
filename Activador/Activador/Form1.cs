@@ -13,6 +13,7 @@ namespace Activador
 {
     public partial class Form1 : Form
     {
+        private Registro B = new Registro();
         public Form1()
         {
             InitializeComponent();
@@ -25,8 +26,7 @@ namespace Activador
         {
             Encriptacion A = new Encriptacion();
             string s = A.EncryptString(key, textBox1.Text);
-            Registro B = new Registro();
-            B.CreateRegister();
+           
             B.ReadSubKey(s);
         }
 
@@ -34,9 +34,8 @@ namespace Activador
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Registro B = new Registro();
-            B.DeleteSubKey("LicenciaActiva");
-            
+            B.CreateRegister();
+            B.DeleteSubKey("LicenciaActiva");   
         }
     }
 }

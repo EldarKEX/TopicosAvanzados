@@ -9,6 +9,8 @@ namespace Licencia.ClassOfContacts
 {
     class ArchiveEdit
     {
+
+        //Propiedad
         private int contadorId;
 
         public ArchiveEdit()
