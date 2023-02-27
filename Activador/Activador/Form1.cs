@@ -28,6 +28,7 @@ namespace Activador
             string s = A.EncryptString(key, textBox1.Text);
            
             B.ReadSubKey(s);
+            textBox1.Text = "";
         }
 
 
@@ -35,7 +36,8 @@ namespace Activador
         private void button2_Click(object sender, EventArgs e)
         {
             B.CreateRegister();
-            B.DeleteSubKey("LicenciaActiva");   
+            B.DeleteSubKey("LicenciaActiva");
+            textBox1.Text = "";
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;//
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,10 +52,17 @@ namespace Licencia
             CreateRegister();
             RegistryKey sk1 = key.OpenSubKey("LicenciaActiva",true);
           
+            if(sk1.GetValue("ID").ToString() == idValue)
+            {
+                MessageBox.Show("Ya esta activa la clave");
+                return;
+            }
 
             sk1.SetValue("ID", idValue);
             sk1.SetValue("Software", "AgendaApp");
             sk1.SetValue("Version", "1.2.21");
+
+            MessageBox.Show("Licencia activada correctamente");
         }
 
 
@@ -63,6 +70,7 @@ namespace Licencia
         public void DeleteSubKey(string subkey)
         {
             key.DeleteSubKey(subkey);
+            MessageBox.Show("Licencia desactivada correctamente");
         }
         
     }

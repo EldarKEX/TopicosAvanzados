@@ -88,6 +88,7 @@ namespace Agenda
             }
 
             metodosAge.CargarFilaPorID(tName, tNumber, tEmail, tAddress, treeView.SelectedNode.Tag.ToString());
+            dataGridView.Rows.Clear();
         }
 
 
