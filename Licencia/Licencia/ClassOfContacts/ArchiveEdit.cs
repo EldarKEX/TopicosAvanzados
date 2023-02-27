@@ -11,7 +11,7 @@ namespace Licencia.ClassOfContacts
     {
 
         //Propiedad
-        private int contadorId;
+        private int contadorId = 0;
 
         public ArchiveEdit()
         {

@@ -40,11 +40,15 @@ namespace Licencia
         //Agrega un fila de datos al final de la lista
         public void AgregarUnaFila(InfoContactos infoContactos)
         {
-            int contadorID = archiveEdit.GetContadorId() + 1;
-            archiveEdit.SetContadorId(contadorID);
+            int contadorID = archiveEdit.GetContadorId();
+
+            archiveEdit.SetContadorId(contadorID+1);
+            
             infoContactos.Id = contadorID.ToString();
 
             listaContactos.AgregarFilaEnLIsta(infoContactos);
+            archiveEdit.GuardarInformacionAlTxt(listInfoContactos);
+            archiveEdit.CargarInformacionDelTxt(listInfoContactos);
         }
 
         //Actualiza el datagrid y el treeView
