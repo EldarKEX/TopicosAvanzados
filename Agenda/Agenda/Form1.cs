@@ -107,5 +107,10 @@ namespace Agenda
             tab1.mAge.DeleteDataGridInfo();
             tab1.mAge.RestablecerArbol();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -109,3 +109,5 @@ C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Agenda\Agenda\bin\Debu
 C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Agenda\Agenda\bin\Debug\ja\DevExpress.Office.v20.2.Core.resources.dll
 C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Agenda\Agenda\bin\Debug\ru\DevExpress.Office.v20.2.Core.resources.dll
 C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Agenda\Agenda\obj\Debug\Agenda.AddTab.resources
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Agenda\Agenda\bin\Debug\ControlDeUsuario.dll
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Agenda\Agenda\bin\Debug\ControlDeUsuario.pdb
