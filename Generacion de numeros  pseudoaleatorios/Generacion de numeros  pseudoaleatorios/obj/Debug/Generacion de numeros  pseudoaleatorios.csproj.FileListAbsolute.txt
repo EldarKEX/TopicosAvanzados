@@ -1,0 +1,10 @@
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Generacion de numeros  pseudoaleatorios\Generacion de numeros  pseudoaleatorios\bin\Debug\Generacion de numeros  pseudoaleatorios.exe.config
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Generacion de numeros  pseudoaleatorios\Generacion de numeros  pseudoaleatorios\bin\Debug\Generacion de numeros  pseudoaleatorios.exe
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Generacion de numeros  pseudoaleatorios\Generacion de numeros  pseudoaleatorios\bin\Debug\Generacion de numeros  pseudoaleatorios.pdb
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Generacion de numeros  pseudoaleatorios\Generacion de numeros  pseudoaleatorios\obj\Debug\Generacion de numeros  pseudoaleatorios.csproj.AssemblyReference.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Generacion de numeros  pseudoaleatorios\Generacion de numeros  pseudoaleatorios\obj\Debug\Generacion_de_numeros__pseudoaleatorios.Form1.resources
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Generacion de numeros  pseudoaleatorios\Generacion de numeros  pseudoaleatorios\obj\Debug\Generacion_de_numeros__pseudoaleatorios.Properties.Resources.resources
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Generacion de numeros  pseudoaleatorios\Generacion de numeros  pseudoaleatorios\obj\Debug\Generacion de numeros  pseudoaleatorios.csproj.GenerateResource.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Generacion de numeros  pseudoaleatorios\Generacion de numeros  pseudoaleatorios\obj\Debug\Generacion de numeros  pseudoaleatorios.csproj.CoreCompileInputs.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Generacion de numeros  pseudoaleatorios\Generacion de numeros  pseudoaleatorios\obj\Debug\Generacion de numeros  pseudoaleatorios.exe
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Generacion de numeros  pseudoaleatorios\Generacion de numeros  pseudoaleatorios\obj\Debug\Generacion de numeros  pseudoaleatorios.pdb
