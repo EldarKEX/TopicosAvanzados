@@ -6,3 +6,4 @@ C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserCo
 C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserControLogin\obj\Debug\UserControLogin.dll
 C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserControLogin\obj\Debug\UserControLogin.pdb
 C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserControLogin\obj\Debug\UserControLogin.ucLogin.resources
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserControLogin\obj\Debug\UserControLogin.Properties.Resources.resources

@@ -89,6 +89,19 @@ namespace UserControLogin
 
         }
 
+        bool ValidarCaracter(char letter)
+        {
+            char[] symbols = {'!','#','$','%','&','*','/','=','?','^','_','+','-','{','}','@','.'};
+            foreach(char lett in symbols)
+            {
+                if(letter == lett)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public bool ValidarEmail(string email)
         {
             int indexSymbol = email.IndexOf("@");
@@ -105,6 +118,15 @@ namespace UserControLogin
             {
                 return false;
             }
+            
+            foreach(char letter in email)
+            {
+                if (!Char.IsLetterOrDigit(letter) && !ValidarCaracter(letter))
+                {
+                    return false;
+                }
+            }
+            
 
 
             return true;
