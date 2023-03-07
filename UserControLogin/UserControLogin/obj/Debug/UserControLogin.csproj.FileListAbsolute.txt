@@ -1,0 +1,8 @@
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserControLogin\bin\Debug\UserControLogin.dll
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserControLogin\bin\Debug\UserControLogin.pdb
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserControLogin\obj\Debug\UserControLogin.csproj.AssemblyReference.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserControLogin\obj\Debug\UserControLogin.csproj.GenerateResource.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserControLogin\obj\Debug\UserControLogin.csproj.CoreCompileInputs.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserControLogin\obj\Debug\UserControLogin.dll
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserControLogin\obj\Debug\UserControLogin.pdb
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserControLogin\UserControLogin\obj\Debug\UserControLogin.ucLogin.resources
