@@ -13,12 +13,27 @@ namespace UserControLogin
     public partial class ucLogin: UserControl
     {
         private bool validacion;
+        private bool visiblePassword;
         public ucLogin()
         {
             InitializeComponent();
             validacion = true;
+            visiblePassword = false;
         }
 
+        public bool VisiblePassword
+        {
+            get
+            {
+                return visiblePassword;
+            }
+            set
+            {
+                visiblePassword = value;
+                tbPassword.UseSystemPasswordChar = visiblePassword;
+
+            }
+        }
         public bool Validacion
         {
             get
@@ -39,7 +54,7 @@ namespace UserControLogin
             }
 
             TextValidation textValidation = new TextValidation();
-            if (textValidation.ValidarEmail(tbEmail.Text))
+            if (textValidation.ValidarUsuario(tbUser.Text)&&textValidation.ValidarEmail(tbEmail.Text)&&textValidation.ValidarPassword(tbPassword.Text))
             {
                 MessageBox.Show("Datos agregados correctamente");
             }
@@ -117,6 +132,11 @@ namespace UserControLogin
 
             panelPassword.Height = 21;
             labelPassword.Visible = false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
