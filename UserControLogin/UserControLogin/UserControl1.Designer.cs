@@ -41,10 +41,19 @@
             this.labelEmail = new System.Windows.Forms.Label();
             this.panelPassword = new System.Windows.Forms.Panel();
             this.labelPassword = new System.Windows.Forms.Label();
+            this.labelValidU = new System.Windows.Forms.Label();
+            this.labelValidE = new System.Windows.Forms.Label();
+            this.labelValidP = new System.Windows.Forms.Label();
+            this.subPanelU = new System.Windows.Forms.Panel();
+            this.subPanelE = new System.Windows.Forms.Panel();
+            this.subPanelP = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.panelUser.SuspendLayout();
             this.panelEmail.SuspendLayout();
             this.panelPassword.SuspendLayout();
+            this.subPanelU.SuspendLayout();
+            this.subPanelE.SuspendLayout();
+            this.subPanelP.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox
@@ -79,7 +88,7 @@
             this.tbEmail.ForeColor = System.Drawing.Color.DarkGray;
             this.tbEmail.Location = new System.Drawing.Point(0, 2);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(180, 19);
+            this.tbEmail.Size = new System.Drawing.Size(181, 19);
             this.tbEmail.TabIndex = 2;
             this.tbEmail.Text = "Email";
             this.tbEmail.Enter += new System.EventHandler(this.tbEmail_Enter);
@@ -93,7 +102,7 @@
             this.tbPassword.ForeColor = System.Drawing.Color.DarkGray;
             this.tbPassword.Location = new System.Drawing.Point(0, 1);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(180, 19);
+            this.tbPassword.Size = new System.Drawing.Size(181, 19);
             this.tbPassword.TabIndex = 3;
             this.tbPassword.Text = "Contraseña";
             this.tbPassword.Enter += new System.EventHandler(this.tbPassword_Enter);
@@ -101,7 +110,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(35, 370);
+            this.btnAceptar.Location = new System.Drawing.Point(34, 388);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 4;
@@ -111,7 +120,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(142, 370);
+            this.btnCancelar.Location = new System.Drawing.Point(141, 389);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 5;
@@ -124,8 +133,9 @@
             this.panelUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelUser.Controls.Add(this.labelUser);
             this.panelUser.Controls.Add(this.tbUser);
+            this.panelUser.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelUser.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panelUser.Location = new System.Drawing.Point(35, 225);
+            this.panelUser.Location = new System.Drawing.Point(0, 3);
             this.panelUser.Name = "panelUser";
             this.panelUser.Size = new System.Drawing.Size(182, 21);
             this.panelUser.TabIndex = 6;
@@ -150,9 +160,10 @@
             this.panelEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelEmail.Controls.Add(this.labelEmail);
             this.panelEmail.Controls.Add(this.tbEmail);
-            this.panelEmail.Location = new System.Drawing.Point(35, 266);
+            this.panelEmail.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelEmail.Location = new System.Drawing.Point(0, 2);
             this.panelEmail.Name = "panelEmail";
-            this.panelEmail.Size = new System.Drawing.Size(182, 23);
+            this.panelEmail.Size = new System.Drawing.Size(183, 23);
             this.panelEmail.TabIndex = 7;
             // 
             // labelEmail
@@ -173,9 +184,10 @@
             this.panelPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelPassword.Controls.Add(this.labelPassword);
             this.panelPassword.Controls.Add(this.tbPassword);
-            this.panelPassword.Location = new System.Drawing.Point(35, 309);
+            this.panelPassword.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelPassword.Location = new System.Drawing.Point(0, 0);
             this.panelPassword.Name = "panelPassword";
-            this.panelPassword.Size = new System.Drawing.Size(182, 22);
+            this.panelPassword.Size = new System.Drawing.Size(183, 22);
             this.panelPassword.TabIndex = 8;
             // 
             // labelPassword
@@ -190,19 +202,79 @@
             this.labelPassword.Text = "Contraseña";
             this.labelPassword.Visible = false;
             // 
+            // labelValidU
+            // 
+            this.labelValidU.AutoSize = true;
+            this.labelValidU.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelValidU.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValidU.Location = new System.Drawing.Point(0, 24);
+            this.labelValidU.Name = "labelValidU";
+            this.labelValidU.Size = new System.Drawing.Size(0, 15);
+            this.labelValidU.TabIndex = 9;
+            // 
+            // labelValidE
+            // 
+            this.labelValidE.AutoSize = true;
+            this.labelValidE.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelValidE.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValidE.Location = new System.Drawing.Point(0, 25);
+            this.labelValidE.Name = "labelValidE";
+            this.labelValidE.Size = new System.Drawing.Size(0, 15);
+            this.labelValidE.TabIndex = 10;
+            // 
+            // labelValidP
+            // 
+            this.labelValidP.AutoSize = true;
+            this.labelValidP.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelValidP.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValidP.Location = new System.Drawing.Point(0, 22);
+            this.labelValidP.Name = "labelValidP";
+            this.labelValidP.Size = new System.Drawing.Size(0, 15);
+            this.labelValidP.TabIndex = 11;
+            // 
+            // subPanelU
+            // 
+            this.subPanelU.AutoSize = true;
+            this.subPanelU.Controls.Add(this.panelUser);
+            this.subPanelU.Controls.Add(this.labelValidU);
+            this.subPanelU.Location = new System.Drawing.Point(34, 227);
+            this.subPanelU.Name = "subPanelU";
+            this.subPanelU.Size = new System.Drawing.Size(182, 39);
+            this.subPanelU.TabIndex = 12;
+            // 
+            // subPanelE
+            // 
+            this.subPanelE.AutoSize = true;
+            this.subPanelE.Controls.Add(this.panelEmail);
+            this.subPanelE.Controls.Add(this.labelValidE);
+            this.subPanelE.Location = new System.Drawing.Point(34, 281);
+            this.subPanelE.Name = "subPanelE";
+            this.subPanelE.Size = new System.Drawing.Size(183, 40);
+            this.subPanelE.TabIndex = 13;
+            // 
+            // subPanelP
+            // 
+            this.subPanelP.AutoSize = true;
+            this.subPanelP.Controls.Add(this.panelPassword);
+            this.subPanelP.Controls.Add(this.labelValidP);
+            this.subPanelP.Location = new System.Drawing.Point(34, 333);
+            this.subPanelP.Name = "subPanelP";
+            this.subPanelP.Size = new System.Drawing.Size(183, 37);
+            this.subPanelP.TabIndex = 14;
+            // 
             // ucLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.panelPassword);
-            this.Controls.Add(this.panelEmail);
-            this.Controls.Add(this.panelUser);
+            this.Controls.Add(this.subPanelP);
+            this.Controls.Add(this.subPanelE);
+            this.Controls.Add(this.subPanelU);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.pictureBox);
             this.Name = "ucLogin";
-            this.Size = new System.Drawing.Size(257, 443);
+            this.Size = new System.Drawing.Size(249, 443);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
@@ -210,7 +282,14 @@
             this.panelEmail.PerformLayout();
             this.panelPassword.ResumeLayout(false);
             this.panelPassword.PerformLayout();
+            this.subPanelU.ResumeLayout(false);
+            this.subPanelU.PerformLayout();
+            this.subPanelE.ResumeLayout(false);
+            this.subPanelE.PerformLayout();
+            this.subPanelP.ResumeLayout(false);
+            this.subPanelP.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -228,5 +307,11 @@
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.Panel panelPassword;
         private System.Windows.Forms.Label labelPassword;
+        private System.Windows.Forms.Label labelValidU;
+        private System.Windows.Forms.Label labelValidE;
+        private System.Windows.Forms.Label labelValidP;
+        private System.Windows.Forms.Panel subPanelU;
+        private System.Windows.Forms.Panel subPanelE;
+        private System.Windows.Forms.Panel subPanelP;
     }
 }

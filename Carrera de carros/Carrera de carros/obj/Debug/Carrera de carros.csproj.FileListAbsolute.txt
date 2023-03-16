@@ -1,0 +1,10 @@
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Carrera de carros\Carrera de carros\bin\Debug\Carrera de carros.exe.config
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Carrera de carros\Carrera de carros\bin\Debug\Carrera de carros.exe
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Carrera de carros\Carrera de carros\bin\Debug\Carrera de carros.pdb
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Carrera de carros\Carrera de carros\obj\Debug\Carrera de carros.csproj.AssemblyReference.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Carrera de carros\Carrera de carros\obj\Debug\Carrera_de_carros.Form1.resources
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Carrera de carros\Carrera de carros\obj\Debug\Carrera_de_carros.Properties.Resources.resources
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Carrera de carros\Carrera de carros\obj\Debug\Carrera de carros.csproj.GenerateResource.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Carrera de carros\Carrera de carros\obj\Debug\Carrera de carros.csproj.CoreCompileInputs.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Carrera de carros\Carrera de carros\obj\Debug\Carrera de carros.exe
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Carrera de carros\Carrera de carros\obj\Debug\Carrera de carros.pdb

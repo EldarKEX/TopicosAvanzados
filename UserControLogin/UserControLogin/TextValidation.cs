@@ -35,7 +35,7 @@ namespace UserControLogin
             }
 
             string usuarioLOWER = usuario.ToLower().Substring(1);
-              
+            int count = 0;
 
             //Validacion 1
             if (!Char.IsUpper(usuario[0]))
@@ -49,7 +49,16 @@ namespace UserControLogin
                 return false;
             }
 
-            if (!ContainsTwoNumbers(usuario))
+
+            foreach(char letter in usuario)
+            {
+                if (Char.IsDigit(letter))
+                {
+                    count++;
+                }
+            }
+
+            if (count != 1)
             {
                 return false;
             }
@@ -62,23 +71,23 @@ namespace UserControLogin
             bool upper = false;
             bool lower = false;
             bool twoNumbers = ContainsTwoNumbers(password);
-
+            
             foreach (char letter in password)
-            {    
+            {
                 if (Char.IsLetter(letter))
                 {
-                     if (Char.IsUpper(letter))
-                     {
-                         upper = true;
-                     }
+                    if (Char.IsUpper(letter))
+                    {
+                        upper = true;
+                    }
 
-                     if (Char.IsLower(letter))
-                     { 
-                         lower = true;
-                     }
+                    if (Char.IsLower(letter))
+                    {
+                        lower = true;
+                    }
                 }
-
             }
+
             if (lower && upper && twoNumbers)
             {
                 return true;

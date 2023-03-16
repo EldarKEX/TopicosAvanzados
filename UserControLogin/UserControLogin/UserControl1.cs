@@ -18,7 +18,8 @@ namespace UserControLogin
         {
             InitializeComponent();
             validacion = true;
-            visiblePassword = false;
+            visiblePassword = true;
+            tbPassword.UseSystemPasswordChar = true;
         }
 
         public bool VisiblePassword
@@ -48,15 +49,58 @@ namespace UserControLogin
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (!validacion)
+            try
             {
-                return;
-            }
 
-            TextValidation textValidation = new TextValidation();
-            if (textValidation.ValidarUsuario(tbUser.Text)&&textValidation.ValidarEmail(tbEmail.Text)&&textValidation.ValidarPassword(tbPassword.Text))
+                if (!validacion)
+                {
+                    return;
+                }
+
+                TextValidation textValidation = new TextValidation();
+
+
+                bool user = textValidation.ValidarUsuario(tbUser.Text);
+                bool email = textValidation.ValidarEmail(tbEmail.Text);
+                bool password = textValidation.ValidarPassword(tbPassword.Text);
+
+
+                if (user)
+                {
+                    labelValidU.Text = "✅Nombre de usuario valido";
+                    labelValidU.ForeColor = Color.Green;
+                }
+                else
+                {
+                    labelValidU.Text = "❎Nombre de usuario incorrecto";
+                    labelValidU.ForeColor = Color.Red;
+                }
+
+                if (email)
+                {
+                    labelValidE.Text = "✅Direccion de email valida";
+                    labelValidE.ForeColor = Color.Green;
+                }
+                else
+                {
+                    labelValidE.Text = "❎Direccion de email incorrecta";
+                    labelValidE.ForeColor = Color.Red;
+                }
+
+                if (password)
+                {
+                    labelValidP.Text = "✅Contraseña valida";
+                    labelValidP.ForeColor = Color.Green;
+                }
+                else
+                {
+                    labelValidP.Text = "❎Contraseña incorrecta";
+                    labelValidP.ForeColor = Color.Red;
+                }
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Datos agregados correctamente");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -136,7 +180,8 @@ namespace UserControLogin
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            
+            Form form = this.FindForm();
+            form.Close();
         }
     }
 }

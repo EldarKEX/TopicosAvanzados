@@ -38,7 +38,7 @@ namespace Generacion_de_numeros__pseudoaleatorios
             if (numeroText.Length < double.Parse(e))
             {
                 while(numeroText.Length < double.Parse(e))
-                {
+                {                
                     numeroText = "0" + numeroText;
                 }
 
