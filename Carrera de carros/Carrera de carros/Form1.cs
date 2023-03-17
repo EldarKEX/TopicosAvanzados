@@ -25,16 +25,7 @@ namespace Carrera_de_carros
         {
             
         }
-        void ClearingCar(Carro carro)
-        {
-            while (true)
-            {
-                if (carroRojo.Painted && carroAzul.Painted)
-                {
-                    carro.CleanCar();
-                }
-            }
-        }
+       
 
         void CorrectIteracion(Carro carro)
         {
@@ -49,8 +40,8 @@ namespace Carrera_de_carros
             {
                 carroRojo.Painted = false;
                 carroRojo.DrawCar();
-                Thread.Sleep(100);
-                ClearingCar(carroRojo);
+                Thread.Sleep(1000);
+                carroRojo.CleanCar();
                     
                 if(carroRojo.PosX >= 900)
                 {
@@ -66,9 +57,9 @@ namespace Carrera_de_carros
             while (true)
             {
                 carroAzul.DrawCar();
-                Thread.Sleep(100);
-                ClearingCar(carroAzul);
-                if (carroAzul.PosX >= 900)
+                Thread.Sleep(1000);
+                carroAzul.CleanCar();
+                if (carroAzul.PosX >= 800)
                 {
                     carroAzul.DrawCar();
                     return;
@@ -83,15 +74,22 @@ namespace Carrera_de_carros
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            carroRojo = new Carro(Color.Red, 20);
-            carroAzul = new Carro(Color.Blue, 20);
-            carroVerde = new Carro(Color.Green, 20);
+            try
+            {
+                carroRojo = new Carro(Color.Red, 50, 123);
+                carroAzul = new Carro(Color.Blue, 150, 345);
+                carroVerde = new Carro(Color.Green, 20, 654);
 
-            thread1 = new Thread(DrawCarRed);
-            thread2 = new Thread(DrawCarBlue);
+                thread1 = new Thread(DrawCarRed);
+                thread2 = new Thread(DrawCarBlue);
 
-            thread1.Start();
-            thread2.Start();
+                thread1.Start();
+                thread2.Start();
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

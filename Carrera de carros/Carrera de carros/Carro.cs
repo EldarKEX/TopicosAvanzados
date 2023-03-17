@@ -14,18 +14,22 @@ namespace Carrera_de_carros
         private string textColor;
         private int posX;
         private int posY;
+        private Color colorCar;
         private Random random;
         private Graphics graphics;
         private int iteracion;
         Pen carPen;
-        public Carro(Color color,int posY)
+        Pen whitePen;
+        public Carro(Color color,int posY,int seed)
         {
+            colorCar = color;
             carPen = new Pen(color);
+            whitePen = new Pen(Color.White);
             textColor = color.ToString();
             posX = 10;
             this.posY = posY;
             this.iteracion = 0;
-            random = new Random();
+            random = new Random(seed);
             graphics = Form1.ActiveForm.CreateGraphics();
         }
 
@@ -68,18 +72,50 @@ namespace Carrera_de_carros
             }
         }
 
+        void DrawBody()
+        {
+            posX += random.Next(30);
+            Rectangle rect = new Rectangle(posX, posY, 90, 40);
+            graphics.DrawRectangle(carPen, rect);
+            SolidBrush brush = new SolidBrush(colorCar);
+            graphics.FillRectangle(brush, rect);
+        }
+
+        void DrawWheels(int wheel)
+        {
+            Rectangle rect = new Rectangle(posX+wheel, posY + 30, 20, 20);
+            graphics.DrawEllipse(carPen, rect);
+            SolidBrush brush = new SolidBrush(colorCar);
+            graphics.FillEllipse(brush, rect);
+        }
         public void DrawCar()
         {
-            posX += random.Next(30, 40);
-            Rectangle rect = new Rectangle(posX, posY, 80, 40);            
-            graphics.DrawRectangle(carPen, rect);
-            iteracion++;
+            DrawBody();
+            DrawWheels(8);
+            DrawWheels(60);
             painted = true;
         }
 
+        public void CleanWheels()
+        {
+            Rectangle rect = new Rectangle(posX, posY+41, 40, 20);
+            Pen blackPen = new Pen(Color.Black);
+            SolidBrush brush = new SolidBrush(Color.White);
+            graphics.DrawRectangle(blackPen,rect);
+           // graphics.FillRectangle(brush, rect);
+        }
+
+        public void CleanBody()
+        {
+            Rectangle rect = new Rectangle(posX - 40, posY, 60, 80);
+            SolidBrush brush = new SolidBrush(Color.White);
+            graphics.DrawRectangle(whitePen, rect);
+            graphics.FillRectangle(brush, rect);
+        }
         public void CleanCar()
         {
-            graphics.Clear(Color.White);
+            CleanBody();
+            CleanWheels();
         }
     }
 }
