@@ -14,38 +14,40 @@ namespace Carrera_de_carros
     {
         private Thread thread1;
         private Thread thread2;
+        private Thread thread3;
+        private int i = 3;
         private Carro carroRojo;
         private Carro carroAzul;
         private Carro carroVerde;
+        private List<Carro> listCar;
+        private Mapa mapa;
+        private Graphics graphics;
+        private bool status;
         public Form1()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            status = false;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             
         }
-       
 
-        void CorrectIteracion(Carro carro)
-        {
-            while (true)
-            {
-
-            }
-        }
         public void DrawCarRed()
-        {
+        {           
             while (true)
             {
                 carroRojo.Painted = false;
                 carroRojo.DrawCar();
-                Thread.Sleep(1000);
+                Thread.Sleep(150);
                 carroRojo.CleanCar();
                     
-                if(carroRojo.PosX >= 900)
+                if(carroRojo.PosX >= 800)
                 {
                     carroRojo.DrawCar();
+                    carroRojo.Rank *= i;
+                    carroRojo.Finished = true;
+                    i--;
                     return;
                 }             
             }
@@ -57,47 +59,113 @@ namespace Carrera_de_carros
             while (true)
             {
                 carroAzul.DrawCar();
-                Thread.Sleep(1000);
+                Thread.Sleep(150);
                 carroAzul.CleanCar();
                 if (carroAzul.PosX >= 800)
                 {
                     carroAzul.DrawCar();
+                    carroAzul.Rank *= i;
+                    carroAzul.Finished = true;
+                    i--;
                     return;
                 }
                 
-            }
-
-            
+            }        
         }
 
+        public void DrawCarGreen()
+        {
+            while (true)
+            {
+                carroVerde.DrawCar();
+                Thread.Sleep(150);
+                carroVerde.CleanCar();
+                if (carroVerde.PosX >= 800)
+                {
+                    carroVerde.DrawCar();
+                    carroVerde.Rank *= i;
+                    carroVerde.Finished = true;
+                    i--;
+                    return;
+                }
+
+            }
+        }
+
+
+
+        void InitializeClasses()
+        {         
+            graphics = this.CreateGraphics();
+            carroRojo = new Carro(Color.Red, 70, 123, graphics,"Rojo");
+            carroAzul = new Carro(Color.Blue, 170, 345, graphics,"Azul");
+            carroVerde = new Carro(Color.Green, 270, 654, graphics,"Verde");
+            listCar = new List<Carro>();
+            listCar.Add(carroRojo);
+            listCar.Add(carroAzul);
+            listCar.Add(carroVerde);
+            mapa = new Mapa(graphics);
+            thread1 = new Thread(DrawCarRed);
+            thread2 = new Thread(DrawCarBlue);
+            thread3 = new Thread(DrawCarGreen);
+            
+        }
 
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
             try
             {
-                carroRojo = new Carro(Color.Red, 50, 123);
-                carroAzul = new Carro(Color.Blue, 150, 345);
-                carroVerde = new Carro(Color.Green, 20, 654);
-
-                thread1 = new Thread(DrawCarRed);
-                thread2 = new Thread(DrawCarBlue);
-
+                i = 3;
+                btnInicio.Enabled = false;
+                InitializeClasses();
+                timer1.Start();
+                mapa.CleanMap();
                 thread1.Start();
                 thread2.Start();
+                thread3.Start();
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+            }          
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                thread1.Abort();
+                thread2.Abort();
             }
             catch (Exception exp)
             {
                 MessageBox.Show(exp.Message);
             }
+            
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            thread1.Abort();
-            thread2.Abort();
+            if (mapa.isFinished(carroRojo.Finished,carroAzul.Finished,carroVerde.Finished))
+            {
+                btnInicio.Enabled = true;
+            }
+
+            listCar.Sort(delegate (Carro carro1,Carro carro2)
+            {
+                return carro1.Rank.CompareTo(carro2.Rank);
+            });
+
+
+            label1.Text = "1.-" + listCar[2].Nombre ;
+            label2.Text = "2.-" + listCar[1].Nombre ;
+            label3.Text = "3.-" + listCar[0].Nombre ;
         }
 
-        
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
