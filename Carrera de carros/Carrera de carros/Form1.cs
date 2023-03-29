@@ -39,7 +39,7 @@ namespace Carrera_de_carros
             {
                 carroRojo.Painted = false;
                 carroRojo.DrawCar();
-                Thread.Sleep(150);
+                Thread.Sleep(100);
                 carroRojo.CleanCar();
                     
                 if(carroRojo.PosX >= 800)
@@ -59,7 +59,7 @@ namespace Carrera_de_carros
             while (true)
             {
                 carroAzul.DrawCar();
-                Thread.Sleep(150);
+                Thread.Sleep(100);
                 carroAzul.CleanCar();
                 if (carroAzul.PosX >= 800)
                 {
@@ -78,7 +78,7 @@ namespace Carrera_de_carros
             while (true)
             {
                 carroVerde.DrawCar();
-                Thread.Sleep(150);
+                Thread.Sleep(100);
                 carroVerde.CleanCar();
                 if (carroVerde.PosX >= 800)
                 {
@@ -97,9 +97,9 @@ namespace Carrera_de_carros
         void InitializeClasses()
         {         
             graphics = this.CreateGraphics();
-            carroRojo = new Carro(Color.Red, 70, 123, graphics,"Rojo");
-            carroAzul = new Carro(Color.Blue, 170, 345, graphics,"Azul");
-            carroVerde = new Carro(Color.Green, 270, 654, graphics,"Verde");
+            carroRojo = new Carro(Color.Red, 90, 123, graphics,"Rojo");
+            carroAzul = new Carro(Color.Blue, 190, 345, graphics,"Azul");
+            carroVerde = new Carro(Color.Green, 290, 654, graphics,"Verde");
             listCar = new List<Carro>();
             listCar.Add(carroRojo);
             listCar.Add(carroAzul);
@@ -108,7 +108,10 @@ namespace Carrera_de_carros
             thread1 = new Thread(DrawCarRed);
             thread2 = new Thread(DrawCarBlue);
             thread3 = new Thread(DrawCarGreen);
-            
+            label1.Text = "1.-";
+            label2.Text = "2.-";
+            label3.Text = "3.-";
+            label4.Text = "";
         }
 
 
@@ -149,6 +152,8 @@ namespace Carrera_de_carros
         {
             if (mapa.isFinished(carroRojo.Finished,carroAzul.Finished,carroVerde.Finished))
             {
+                label4.Text = "El carro " + listCar[2].Nombre + " Gano";
+                label4.ForeColor = listCar[2].ColorCar;
                 btnInicio.Enabled = true;
             }
 
@@ -161,9 +166,16 @@ namespace Carrera_de_carros
             label1.Text = "1.-" + listCar[2].Nombre ;
             label2.Text = "2.-" + listCar[1].Nombre ;
             label3.Text = "3.-" + listCar[0].Nombre ;
+
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

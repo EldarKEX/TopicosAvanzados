@@ -36,6 +36,14 @@ namespace Carrera_de_carros
             this.graphics = graphics;
         }
 
+        public Color ColorCar
+        {
+            get
+            {
+                return colorCar;
+            }
+        }
+
         public int Rank
         {
             set
