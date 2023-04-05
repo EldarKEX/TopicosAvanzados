@@ -16,6 +16,14 @@ namespace RentaDeAutos.Class
         private int minute;
         private int hour;
 
+        const float DIAMETER = 200;
+        const int RADIUS = 100;
+        const int LINE_LENGTH_HOUR = 40;
+        const int LINE_LENGTH_MINUTES = 80;
+        const int ANGLE_INITIAL = 270;
+        const float AXIS_X_CENTRAL = 0;
+        const float AXIS_Y_CENTRAL = 0;
+
         public ClockClass(Graphics graphics)
         {
             this.graphics = graphics;
@@ -27,39 +35,51 @@ namespace RentaDeAutos.Class
     }
         public void DrawCircle()
         {
-
             graphics.Clear(Color.White);
-            RectangleF rectangle = new RectangleF(20, 20, 250, 250);
+
+            //Punto inicial
+            PointF pointF = new PointF(0,0);
+
+            //Tamaño del circulo
+            SizeF sizeF = new SizeF(DIAMETER, DIAMETER);
+
+            //Rectangulo del circulo
+            RectangleF rectangle = new RectangleF(pointF, sizeF);
+
+            //Dibujar Circulo
             graphics.DrawEllipse(penRed, rectangle);
         }
-        public void DrawLineHour(string Angle)
+        public void DrawLineHour(string angle)
         {
+            //Angulo a radianes
+            Double angleRAD = Double.Parse(angle);
+            angleRAD = (Math.PI * (angleRAD + ANGLE_INITIAL)) / 180;
 
-            Double angleD = Double.Parse(Angle);
-            angleD = (Math.PI * (angleD + 270)) / 180;
+            //ejes del termino de la linea
+            float posX = float.Parse((Math.Cos(angleRAD) * LINE_LENGTH_HOUR).ToString());
+            float posY = float.Parse((Math.Sin(angleRAD) * LINE_LENGTH_HOUR).ToString());
 
-            float posX = float.Parse((Math.Cos(angleD) * 60).ToString());
-            float posY = float.Parse((Math.Sin(angleD) * 60).ToString());
+            //Puntos de la recta
+            PointF middlePoint = new PointF(RADIUS, RADIUS);
+            PointF endPoint = new PointF(RADIUS + posX, RADIUS + posY);
 
-            PointF pointX = new PointF(145, 145);
-            PointF pointY = new PointF(145 + posX, 145 + posY);
-
-            graphics.DrawLine(penBlue, pointX, pointY);
+            graphics.DrawLine(penBlue, middlePoint, endPoint);
         }
 
-        public void DrawLineMinute(string Angle)
+        public void DrawLineMinute(string angle)
         {
+            //Angulo a radianes
+            Double angleRAD = Double.Parse(angle);
+            angleRAD = (Math.PI * (angleRAD + ANGLE_INITIAL)) / 180;
 
-            Double angleD = Double.Parse(Angle);
-            angleD = (Math.PI * (angleD + 270)) / 180;
 
-            float posX = float.Parse((Math.Cos(angleD) * 100).ToString());
-            float posY = float.Parse((Math.Sin(angleD) * 100).ToString());
+            float posX = float.Parse((Math.Cos(angleRAD) * LINE_LENGTH_MINUTES).ToString());
+            float posY = float.Parse((Math.Sin(angleRAD) * LINE_LENGTH_MINUTES).ToString());
 
-            PointF pointX = new PointF(145, 145);
-            PointF pointY = new PointF(145 + posX, 145 + posY);
+            PointF middlePoint = new PointF(RADIUS, RADIUS);
+            PointF endPoint = new PointF(RADIUS + posX, RADIUS + posY);
 
-            graphics.DrawLine(penGreen, pointX, pointY);
+            graphics.DrawLine(penGreen, middlePoint, endPoint);
         }
 
         public string GetCurrentHour()

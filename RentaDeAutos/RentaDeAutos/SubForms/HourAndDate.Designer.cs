@@ -1,7 +1,7 @@
 ﻿
 namespace RentaDeAutos.SubForms
 {
-    partial class Clock
+    partial class HourAndDate
     {
         /// <summary>
         /// Required designer variable.
@@ -29,30 +29,39 @@ namespace RentaDeAutos.SubForms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // timer1
+            // monthCalendar1
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.monthCalendar1.Location = new System.Drawing.Point(38, 66);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 0;
             // 
-            // Clock
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(553, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 200);
+            this.panel1.TabIndex = 1;
+            // 
+            // HourAndDate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(200, 200);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Clock";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Reloj";
+            this.ClientSize = new System.Drawing.Size(816, 281);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.monthCalendar1);
+            this.Name = "HourAndDate";
+            this.Text = "HourAndDate";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Timer timer1;
+
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

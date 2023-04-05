@@ -61,6 +61,12 @@
     <Compile Include="SubForms\Clock.Designer.cs">
       <DependentUpon>Clock.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubForms\HourAndDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\HourAndDate.Designer.cs">
+      <DependentUpon>HourAndDate.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +81,9 @@
     </Compile>
     <EmbeddedResource Include="SubForms\Clock.resx">
       <DependentUpon>Clock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\HourAndDate.resx">
+      <DependentUpon>HourAndDate.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
