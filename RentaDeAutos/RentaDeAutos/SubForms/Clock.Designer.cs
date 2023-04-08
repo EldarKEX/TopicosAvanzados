@@ -48,6 +48,7 @@ namespace RentaDeAutos.SubForms
             this.Name = "Clock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reloj";
+            this.Shown += new System.EventHandler(this.Clock_Shown);
             this.ResumeLayout(false);
 
         }

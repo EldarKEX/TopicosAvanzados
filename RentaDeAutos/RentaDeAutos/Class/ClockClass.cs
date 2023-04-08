@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RentaDeAutos.Class
 {
-    class ClockClass
+    public class ClockClass
     {
         private Graphics graphics;
         private Pen penRed;
@@ -82,18 +82,14 @@ namespace RentaDeAutos.Class
             graphics.DrawLine(penGreen, middlePoint, endPoint);
         }
 
-        public string GetCurrentHour()
+        public string GetCurrentHour(int hourC)
         {
-            TimeSpan currentTime = DateTime.Now.TimeOfDay;
-            hour = currentTime.Hours;
-            return (hour * 30).ToString();
+            return (hourC * 30).ToString();
         }
 
-        public string GetCurrentMinute()
+        public string GetCurrentMinute(int minuteC)
         {
-            TimeSpan currentTime = DateTime.Now.TimeOfDay;
-            minute = currentTime.Minutes;
-            return (minute * 6).ToString();
+            return (minuteC * 6).ToString();
         }
 
         public void DrawClock()
@@ -106,9 +102,15 @@ namespace RentaDeAutos.Class
             }
 
             DrawCircle();
-            DrawLineHour(GetCurrentHour());
-            DrawLineMinute(GetCurrentMinute());
+            DrawLineHour(GetCurrentHour(DateTime.Now.TimeOfDay.Hours));
+            DrawLineMinute(GetCurrentMinute(DateTime.Now.TimeOfDay.Minutes));
+        }
 
+        public void DrawClock(int hour, int minute)
+        {
+            DrawCircle();
+            DrawLineHour(GetCurrentHour(hour));
+            DrawLineMinute(GetCurrentMinute(minute));
         }
     }
 }
