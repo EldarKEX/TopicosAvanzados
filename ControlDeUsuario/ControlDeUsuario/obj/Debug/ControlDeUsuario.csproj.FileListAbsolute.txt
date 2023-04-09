@@ -1,0 +1,8 @@
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\ControlDeUsuario\ControlDeUsuario\bin\Debug\ControlDeUsuario.dll
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\ControlDeUsuario\ControlDeUsuario\bin\Debug\ControlDeUsuario.pdb
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\ControlDeUsuario\ControlDeUsuario\obj\Debug\ControlDeUsuario.csproj.AssemblyReference.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\ControlDeUsuario\ControlDeUsuario\obj\Debug\ControlDeUsuario.UserControl1.resources
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\ControlDeUsuario\ControlDeUsuario\obj\Debug\ControlDeUsuario.csproj.GenerateResource.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\ControlDeUsuario\ControlDeUsuario\obj\Debug\ControlDeUsuario.csproj.CoreCompileInputs.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\ControlDeUsuario\ControlDeUsuario\obj\Debug\ControlDeUsuario.dll
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\ControlDeUsuario\ControlDeUsuario\obj\Debug\ControlDeUsuario.pdb

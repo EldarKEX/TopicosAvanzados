@@ -1,10 +1,16 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 Eldar/6871224563/sdaskdma/fieradx@gmail.com
 Pedro/6893334324/fsdfsdf/sdfsdf
 =======
+=======
+>>>>>>> Stashed changes
 Eldar/6871224563/centro/fieradx@gmail.com
 Pedro/6893334324/pedro@gmail.com/barrancos
 pesad/sdfsdf/sdfgds/sdfgds
 ndfifndfi/ibiubiu/biubi/buibi
 rtgfgfd/54545454/rttrttr/rtgrtrt
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
