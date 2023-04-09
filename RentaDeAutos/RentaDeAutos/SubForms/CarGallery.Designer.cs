@@ -32,6 +32,11 @@ namespace RentaDeAutos.SubForms
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.rENTCARDataSet = new RentaDeAutos.RENTCARDataSet();
+            this.carTableAdapter = new RentaDeAutos.RENTCARDataSetTableAdapters.CarTableAdapter();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.rENTCARDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -40,7 +45,7 @@ namespace RentaDeAutos.SubForms
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(239, 289);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(323, 187);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // button3
@@ -63,16 +68,38 @@ namespace RentaDeAutos.SubForms
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // rENTCARDataSet
+            // 
+            this.rENTCARDataSet.DataSetName = "RENTCARDataSet";
+            this.rENTCARDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // carTableAdapter
+            // 
+            this.carTableAdapter.ClearBeforeFill = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(74, 203);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(130, 99);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // CarGallery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(239, 389);
+            this.ClientSize = new System.Drawing.Size(323, 389);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "CarGallery";
             this.Text = "CarGallery";
+            this.Load += new System.EventHandler(this.CarGallery_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.rENTCARDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -81,5 +108,8 @@ namespace RentaDeAutos.SubForms
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private RENTCARDataSet rENTCARDataSet;
+        private RENTCARDataSetTableAdapters.CarTableAdapter carTableAdapter;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
