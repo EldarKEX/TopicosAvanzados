@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\CarDataClass.cs" />
+    <Compile Include="Class\CarGalleryClass.cs" />
     <Compile Include="Class\ClockClass.cs" />
     <Compile Include="Class\HourAndDateClass.cs" />
     <Compile Include="Main.cs">
@@ -91,6 +93,12 @@
     <Compile Include="SubForms\HourAndDate.Designer.cs">
       <DependentUpon>HourAndDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\CarContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CarContainer.Designer.cs">
+      <DependentUpon>CarContainer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubForms\HourAndDate.resx">
       <DependentUpon>HourAndDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CarContainer.resx">
+      <DependentUpon>CarContainer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
