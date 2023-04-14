@@ -15,7 +15,6 @@ namespace RentaDeAutos.SubForms
     {
         private HourAndDateClass hourDateClass;
         private Clock clock;
-        private Thread threadClock;
         public HourAndDate()
         {
             InitializeComponent();
@@ -79,7 +78,7 @@ namespace RentaDeAutos.SubForms
 
         private void HourAndDate_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //threadClock.Abort();
+           
         }
 
         private void HourAndDate_Shown(object sender, EventArgs e)

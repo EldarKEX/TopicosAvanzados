@@ -18,15 +18,28 @@ namespace RentaDeAutos.SubForms
     {
         private CarGalleryClass carGalleryClass;
         private bool thereIsData;
+        private bool isClosed;
 
         public CarGallery()
         {
             InitializeComponent();
             carGalleryClass = new CarGalleryClass(carTableAdapter.GetData());
             thereIsData = false;
+            isClosed = false;
         }
 
-        public CarGalleryClass CarGalleryClass { get => carGalleryClass; set => carGalleryClass = value; }
+        public CarDataClass DataCar{
+            get{
+                if (carGalleryClass.CarContainer == null)
+                {
+                    return new CarDataClass();
+                }
+                return carGalleryClass.CarContainer.CarData;
+            }
+        }
+
+        public bool IsClosed { get => isClosed; set => isClosed = value; }
+        public bool ThereIsData { get => thereIsData; set => thereIsData = value; }
 
         public void LoadControlUser()
         {
@@ -54,11 +67,13 @@ namespace RentaDeAutos.SubForms
         private void Accept_Click(object sender, EventArgs e)
         {
             thereIsData = true;
+            isClosed = true;
             Close();
         }
 
         private void Cancel_Click(object sender, EventArgs e)
         {
+            isClosed = true;
             Close();
         }
     }

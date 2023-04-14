@@ -59,6 +59,7 @@
     <Compile Include="Class\CarGalleryClass.cs" />
     <Compile Include="Class\ClockClass.cs" />
     <Compile Include="Class\HourAndDateClass.cs" />
+    <Compile Include="Class\MainClass.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

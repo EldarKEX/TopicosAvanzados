@@ -22,35 +22,42 @@ namespace RentaDeAutos.SubForms
             thereIsTimer = false;
         }
 
-        public Clock(Timer timer)
+        //public Clock(Timer timer)
+        //{
+        //    InitializeComponent();
+        //    timer1 = timer;
+        //    clockClass = new ClockClass(CreateGraphics());
+        //    thereIsTimer = true;
+        //}
+
+        //public void timer1_Tick(object sender, EventArgs e)
+        //{
+        //    clockClass.DrawClock();
+        //}
+
+        //public void InitTimer()
+        //{
+        //    timer1.Enabled = true;
+        //}
+
+        public void InitClock()
         {
-            InitializeComponent();
-            timer1 = timer;
-            clockClass = new ClockClass(CreateGraphics());
-            thereIsTimer = true;
+            clockClass.DrawClock(12, 0);
         }
 
-        public void timer1_Tick(object sender, EventArgs e)
+        public void DrawClock()
         {
             clockClass.DrawClock();
         }
 
-        public void InitTimer()
-        {
-            timer1.Enabled = true;
-        }
 
-        public void InitClock()
-        {
-            clockClass.DrawClock(12,0);
-        }
         private void Clock_Shown(object sender, EventArgs e)
         {
-            if (thereIsTimer)
-            {
-                InitTimer();
-                return;
-            }
+            //if (thereIsTimer)
+            //{
+            //    InitTimer();
+            //    return;
+            //}
             
         }
     }

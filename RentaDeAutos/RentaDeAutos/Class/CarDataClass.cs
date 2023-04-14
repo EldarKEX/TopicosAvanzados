@@ -17,6 +17,14 @@ namespace RentaDeAutos.Class
         private string color;
         private string cost;
 
+        public CarDataClass()
+        {
+            id = -1;
+            model = "";
+            brand = "";
+            color = "";
+            cost = "";
+        }
         public CarDataClass(int id, Image pictureCar, string model, string brand, string color, string cost)
         {
             this.id = id;

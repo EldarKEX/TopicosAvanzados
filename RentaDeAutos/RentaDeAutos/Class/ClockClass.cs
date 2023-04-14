@@ -48,38 +48,24 @@ namespace RentaDeAutos.Class
             //Dibujar Circulo
             graphics.DrawEllipse(penRed, rectangle);
         }
-        public void DrawLineHour(string angle)
+        public void DrawLine(string angle, Pen pen, int LINE_LENGHT)
         {
             //Angulo a radianes
             Double angleRAD = Double.Parse(angle);
             angleRAD = (Math.PI * (angleRAD + ANGLE_INITIAL)) / 180;
 
             //ejes del termino de la linea
-            float endPointX = float.Parse((Math.Cos(angleRAD) * LINE_LENGTH_HOUR).ToString());
-            float endPointY = float.Parse((Math.Sin(angleRAD) * LINE_LENGTH_HOUR).ToString());
+            float endPointX = float.Parse((Math.Cos(angleRAD) * LINE_LENGHT).ToString());
+            float endPointY = float.Parse((Math.Sin(angleRAD) * LINE_LENGHT).ToString());
 
             //Puntos de la recta
             PointF centralPoint = new PointF(RADIUS, RADIUS);
             PointF endPoint = new PointF(RADIUS + endPointX, RADIUS + endPointY);
 
-            graphics.DrawLine(penBlue, centralPoint, endPoint);
+            graphics.DrawLine(pen, centralPoint, endPoint);
         }
 
-        public void DrawLineMinute(string angle)
-        {
-            //Angulo a radianes
-            Double angleRAD = Double.Parse(angle);
-            angleRAD = (Math.PI * (angleRAD + ANGLE_INITIAL)) / 180;
 
-
-            float endPointX = float.Parse((Math.Cos(angleRAD) * LINE_LENGTH_MINUTES).ToString());
-            float endPointY = float.Parse((Math.Sin(angleRAD) * LINE_LENGTH_MINUTES).ToString());
-
-            PointF centralPoint = new PointF(RADIUS, RADIUS);
-            PointF endPoint = new PointF(RADIUS + endPointX, RADIUS + endPointY);
-
-            graphics.DrawLine(penGreen, centralPoint, endPoint);
-        }
 
         public string GetCurrentHour(int hourC)
         {
@@ -101,15 +87,15 @@ namespace RentaDeAutos.Class
             }
 
             DrawCircle();
-            DrawLineHour(GetCurrentHour(DateTime.Now.TimeOfDay.Hours));
-            DrawLineMinute(GetCurrentMinute(DateTime.Now.TimeOfDay.Minutes));
+            DrawLine(GetCurrentHour(DateTime.Now.TimeOfDay.Hours),penGreen, LINE_LENGTH_HOUR);
+            DrawLine(GetCurrentMinute(DateTime.Now.TimeOfDay.Minutes),penBlue, LINE_LENGTH_MINUTES);
         }
 
         public void DrawClock(int hour, int minute)
         {
             DrawCircle();
-            DrawLineHour(GetCurrentHour(hour));
-            DrawLineMinute(GetCurrentMinute(minute));
+            DrawLine(GetCurrentHour(hour), penGreen, LINE_LENGTH_HOUR);
+            DrawLine(GetCurrentMinute(minute), penBlue, LINE_LENGTH_MINUTES);
         }
     }
 }
