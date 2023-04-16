@@ -9,3 +9,10 @@
         }
     }
 }
+
+namespace RentaDeAutos.RENTCARDataSetTableAdapters {
+    
+    
+    public partial class PurchaseTableAdapter {
+    }
+}

@@ -37,11 +37,13 @@ namespace RentaDeAutos.Class
             }
         }
 
+        public DateTime DateTime { get => dateTime; set => dateTime = value; }
+
         public string GetDate()
         {     
             return dateTime.ToString();
         }
-        public void UpdateDateTime(DateRangeEventArgs e)//Recordatorio de que hay que arreglar esta chingadera (toda la clase)
+        public void UpdateDateTime(DateRangeEventArgs e)
         {          
             dateTime = e.Start.Date;
             dateTime = dateTime.AddMinutes(minute);

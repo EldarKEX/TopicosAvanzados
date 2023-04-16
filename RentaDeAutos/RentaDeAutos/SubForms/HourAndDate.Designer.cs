@@ -29,7 +29,6 @@ namespace RentaDeAutos.SubForms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.panelClock = new System.Windows.Forms.Panel();
             this.SelectedDay = new System.Windows.Forms.TextBox();
@@ -41,7 +40,6 @@ namespace RentaDeAutos.SubForms
             this.hourMinus = new System.Windows.Forms.Button();
             this.AcceptButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // monthCalendar1
@@ -135,6 +133,7 @@ namespace RentaDeAutos.SubForms
             this.AcceptButton.TabIndex = 9;
             this.AcceptButton.Text = "Aceptar";
             this.AcceptButton.UseVisualStyleBackColor = true;
+            this.AcceptButton.Click += new System.EventHandler(this.AcceptButton_Click);
             // 
             // CancelButton
             // 
@@ -144,6 +143,7 @@ namespace RentaDeAutos.SubForms
             this.CancelButton.TabIndex = 10;
             this.CancelButton.Text = "Cancelar";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // HourAndDate
             // 
@@ -164,8 +164,6 @@ namespace RentaDeAutos.SubForms
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "HourAndDate";
             this.Text = "HourAndDate";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HourAndDate_FormClosed);
-            this.Load += new System.EventHandler(this.HourAndDate_Load);
             this.Shown += new System.EventHandler(this.HourAndDate_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -184,6 +182,5 @@ namespace RentaDeAutos.SubForms
         private System.Windows.Forms.Button hourMinus;
         private System.Windows.Forms.Button AcceptButton;
         private System.Windows.Forms.Button CancelButton;
-        private System.Windows.Forms.Timer timer1;
     }
 }

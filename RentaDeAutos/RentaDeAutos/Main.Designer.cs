@@ -32,22 +32,25 @@ namespace RentaDeAutos
             this.label1 = new System.Windows.Forms.Label();
             this.btnCar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.tbDateStart = new System.Windows.Forms.TextBox();
+            this.btnDateStart = new System.Windows.Forms.Button();
+            this.tbDateFinal = new System.Windows.Forms.TextBox();
+            this.btnDateEnd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbAmount = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbCustomer = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbCel = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbAddress = new System.Windows.Forms.TextBox();
             this.panelClock = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.rentcarDataSet1 = new RentaDeAutos.RENTCARDataSet();
+            this.purchaseTableAdapter = new RentaDeAutos.RENTCARDataSetTableAdapters.PurchaseTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.rentcarDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -81,37 +84,39 @@ namespace RentaDeAutos
             this.label2.TabIndex = 2;
             this.label2.Text = "Fecha de inicio";
             // 
-            // textBox1
+            // tbDateStart
             // 
-            this.textBox1.Location = new System.Drawing.Point(29, 166);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 20);
-            this.textBox1.TabIndex = 3;
+            this.tbDateStart.Location = new System.Drawing.Point(29, 166);
+            this.tbDateStart.Name = "tbDateStart";
+            this.tbDateStart.Size = new System.Drawing.Size(168, 20);
+            this.tbDateStart.TabIndex = 3;
             // 
-            // button2
+            // btnDateStart
             // 
-            this.button2.Location = new System.Drawing.Point(203, 164);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(36, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "X";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDateStart.Location = new System.Drawing.Point(203, 164);
+            this.btnDateStart.Name = "btnDateStart";
+            this.btnDateStart.Size = new System.Drawing.Size(36, 23);
+            this.btnDateStart.TabIndex = 4;
+            this.btnDateStart.Text = "X";
+            this.btnDateStart.UseVisualStyleBackColor = true;
+            this.btnDateStart.Click += new System.EventHandler(this.DateStart_Click);
             // 
-            // textBox2
+            // tbDateFinal
             // 
-            this.textBox2.Location = new System.Drawing.Point(29, 223);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(168, 20);
-            this.textBox2.TabIndex = 5;
+            this.tbDateFinal.Location = new System.Drawing.Point(29, 223);
+            this.tbDateFinal.Name = "tbDateFinal";
+            this.tbDateFinal.Size = new System.Drawing.Size(168, 20);
+            this.tbDateFinal.TabIndex = 5;
             // 
-            // button3
+            // btnDateEnd
             // 
-            this.button3.Location = new System.Drawing.Point(204, 219);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "X";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDateEnd.Location = new System.Drawing.Point(204, 219);
+            this.btnDateEnd.Name = "btnDateEnd";
+            this.btnDateEnd.Size = new System.Drawing.Size(35, 23);
+            this.btnDateEnd.TabIndex = 6;
+            this.btnDateEnd.Text = "X";
+            this.btnDateEnd.UseVisualStyleBackColor = true;
+            this.btnDateEnd.Click += new System.EventHandler(this.btnDateEnd_Click);
             // 
             // label3
             // 
@@ -122,12 +127,12 @@ namespace RentaDeAutos
             this.label3.TabIndex = 7;
             this.label3.Text = "Fecha de entrega";
             // 
-            // textBox3
+            // tbAmount
             // 
-            this.textBox3.Location = new System.Drawing.Point(97, 267);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 8;
+            this.tbAmount.Location = new System.Drawing.Point(97, 267);
+            this.tbAmount.Name = "tbAmount";
+            this.tbAmount.Size = new System.Drawing.Size(100, 20);
+            this.tbAmount.TabIndex = 8;
             // 
             // label4
             // 
@@ -138,12 +143,12 @@ namespace RentaDeAutos
             this.label4.TabIndex = 9;
             this.label4.Text = "Monto       $";
             // 
-            // textBox4
+            // tbCustomer
             // 
-            this.textBox4.Location = new System.Drawing.Point(97, 303);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 10;
+            this.tbCustomer.Location = new System.Drawing.Point(97, 303);
+            this.tbCustomer.Name = "tbCustomer";
+            this.tbCustomer.Size = new System.Drawing.Size(100, 20);
+            this.tbCustomer.TabIndex = 10;
             // 
             // label5
             // 
@@ -163,12 +168,12 @@ namespace RentaDeAutos
             this.label6.TabIndex = 12;
             this.label6.Text = "Telefono";
             // 
-            // textBox5
+            // tbCel
             // 
-            this.textBox5.Location = new System.Drawing.Point(97, 343);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 13;
+            this.tbCel.Location = new System.Drawing.Point(97, 343);
+            this.tbCel.Name = "tbCel";
+            this.tbCel.Size = new System.Drawing.Size(100, 20);
+            this.tbCel.TabIndex = 13;
             // 
             // label7
             // 
@@ -179,12 +184,12 @@ namespace RentaDeAutos
             this.label7.TabIndex = 14;
             this.label7.Text = "Domicilio";
             // 
-            // textBox6
+            // tbAddress
             // 
-            this.textBox6.Location = new System.Drawing.Point(97, 387);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 15;
+            this.tbAddress.Location = new System.Drawing.Point(97, 387);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(100, 20);
+            this.tbAddress.TabIndex = 15;
             // 
             // panelClock
             // 
@@ -193,14 +198,15 @@ namespace RentaDeAutos
             this.panelClock.Size = new System.Drawing.Size(200, 200);
             this.panelClock.TabIndex = 16;
             // 
-            // button4
+            // btnSave
             // 
-            this.button4.Location = new System.Drawing.Point(309, 387);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 36);
-            this.button4.TabIndex = 17;
-            this.button4.Text = "Guardar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(309, 387);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(125, 36);
+            this.btnSave.TabIndex = 17;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // button5
             // 
@@ -211,28 +217,37 @@ namespace RentaDeAutos
             this.button5.Text = "Historial";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // rentcarDataSet1
+            // 
+            this.rentcarDataSet1.DataSetName = "RENTCARDataSet";
+            this.rentcarDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // purchaseTableAdapter
+            // 
+            this.purchaseTableAdapter.ClearBeforeFill = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(623, 447);
+            this.ClientSize = new System.Drawing.Size(714, 564);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panelClock);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.tbCel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.tbCustomer);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tbAmount);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnDateEnd);
+            this.Controls.Add(this.tbDateFinal);
+            this.Controls.Add(this.btnDateStart);
+            this.Controls.Add(this.tbDateStart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCar);
             this.Controls.Add(this.label1);
@@ -241,7 +256,8 @@ namespace RentaDeAutos
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Renta de automoviles";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
-            this.Shown += new System.EventHandler(this.Main_Shown);
+            this.Load += new System.EventHandler(this.Main_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.rentcarDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,22 +268,24 @@ namespace RentaDeAutos
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox tbDateStart;
+        private System.Windows.Forms.Button btnDateStart;
+        private System.Windows.Forms.TextBox tbDateFinal;
+        private System.Windows.Forms.Button btnDateEnd;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbAmount;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbCustomer;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbCel;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.Panel panelClock;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button button5;
+        private RENTCARDataSet rentcarDataSet1;
+        private RENTCARDataSetTableAdapters.PurchaseTableAdapter purchaseTableAdapter;
     }
 }
 
