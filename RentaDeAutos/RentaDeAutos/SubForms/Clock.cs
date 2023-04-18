@@ -15,12 +15,18 @@ namespace RentaDeAutos.SubForms
     {
         public ClockClass clockClass;
         public bool thereIsTimer;
-        public Clock()
+        public Image image;
+        public int i = 0;
+        public Clock(bool thereIsTimer)
         {
             InitializeComponent();         
-            clockClass = new ClockClass(CreateGraphics());
-            thereIsTimer = false;
+            clockClass = new ClockClass(pictureBox2.CreateGraphics());
+            this.thereIsTimer = thereIsTimer;
+            image = pictureBox1.Image;
+
         }
+
+        
 
         //public Clock(Timer timer)
         //{
@@ -42,23 +48,45 @@ namespace RentaDeAutos.SubForms
 
         public void InitClock()
         {
+
             clockClass.DrawClock(12, 0);
         }
 
         public void DrawClock()
-        {
+        {           
             clockClass.DrawClock();
         }
 
+        public void UpdateClock(int hour, int minute)
+        {
+            try
+            {
+                clockClass.DrawClock(hour, minute);
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+             
+        }
 
         private void Clock_Shown(object sender, EventArgs e)
         {
-            //if (thereIsTimer)
-            //{
-            //    InitTimer();
-            //    return;
-            //}
+            if (thereIsTimer)
+            {
+                timer1.Start();
+            }
             
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            i++;
+            if(i >= 3)
+            {
+                InitClock();
+                timer1.Stop();
+            }
         }
     }
 }

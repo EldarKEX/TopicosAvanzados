@@ -16,10 +16,10 @@ namespace RentaDeAutos.Class
         private int minute;
         private int hour;
 
-        const float DIAMETER = 200;
-        const int RADIUS = 100;
+        const float DIAMETER = 100;
+        const int RADIUS = 50;
         const int LINE_LENGTH_HOUR = 40;
-        const int LINE_LENGTH_MINUTES = 80;
+        const int LINE_LENGTH_MINUTES = 60;
         const int ANGLE_INITIAL = 270;
   
 
@@ -32,6 +32,12 @@ namespace RentaDeAutos.Class
             minute = 0;
             hour = 0;
         }
+
+        public void DrawImage()
+        {
+            graphics.Clear(Color.White);
+        }
+
         public void DrawCircle()
         {
             graphics.Clear(Color.White);
@@ -81,19 +87,17 @@ namespace RentaDeAutos.Class
         {
             TimeSpan currentTime = DateTime.Now.TimeOfDay;
 
-            if (currentTime.Hours == hour && currentTime.Minutes == minute)
-            {
-                return;
-            }
+            hour = DateTime.Now.TimeOfDay.Hours;
+            minute = DateTime.Now.TimeOfDay.Minutes;
 
-            DrawCircle();
-            DrawLine(GetCurrentHour(DateTime.Now.TimeOfDay.Hours),penGreen, LINE_LENGTH_HOUR);
-            DrawLine(GetCurrentMinute(DateTime.Now.TimeOfDay.Minutes),penBlue, LINE_LENGTH_MINUTES);
+            DrawImage();
+            DrawLine(GetCurrentHour(hour),penGreen, LINE_LENGTH_HOUR);
+            DrawLine(GetCurrentMinute(minute),penBlue, LINE_LENGTH_MINUTES);
         }
 
         public void DrawClock(int hour, int minute)
         {
-            DrawCircle();
+            DrawImage(); 
             DrawLine(GetCurrentHour(hour), penGreen, LINE_LENGTH_HOUR);
             DrawLine(GetCurrentMinute(minute), penBlue, LINE_LENGTH_MINUTES);
         }

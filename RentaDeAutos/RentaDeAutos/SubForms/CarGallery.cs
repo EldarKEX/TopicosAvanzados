@@ -62,7 +62,14 @@ namespace RentaDeAutos.SubForms
 
         private void CarGallery_Shown(object sender, EventArgs e)
         {
-            LoadControlUser();
+            try
+            {
+                LoadControlUser();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }           
         }
 
         private void Accept_Click(object sender, EventArgs e)

@@ -29,7 +29,6 @@ namespace RentaDeAutos.SubForms
         /// </summary>
         private void InitializeComponent()
         {
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.panelClock = new System.Windows.Forms.Panel();
             this.SelectedDay = new System.Windows.Forms.TextBox();
             this.hourPlus = new System.Windows.Forms.Button();
@@ -40,22 +39,15 @@ namespace RentaDeAutos.SubForms
             this.hourMinus = new System.Windows.Forms.Button();
             this.AcceptButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.SuspendLayout();
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(18, 54);
-            this.monthCalendar1.MaxSelectionCount = 1;
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 0;
-            this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // panelClock
             // 
             this.panelClock.BackColor = System.Drawing.Color.White;
-            this.panelClock.Location = new System.Drawing.Point(297, 22);
+            this.panelClock.Location = new System.Drawing.Point(292, 22);
             this.panelClock.Name = "panelClock";
-            this.panelClock.Size = new System.Drawing.Size(200, 200);
+            this.panelClock.Size = new System.Drawing.Size(205, 205);
             this.panelClock.TabIndex = 1;
             // 
             // SelectedDay
@@ -145,6 +137,14 @@ namespace RentaDeAutos.SubForms
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(18, 54);
+            this.monthCalendar1.MaxSelectionCount = 1;
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 0;
+            this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
+            // 
             // HourAndDate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,7 +172,6 @@ namespace RentaDeAutos.SubForms
 
         #endregion
         private System.Windows.Forms.Panel panelClock;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.TextBox SelectedDay;
         private System.Windows.Forms.Button hourPlus;
         private System.Windows.Forms.Button quarterMinPLus;
@@ -182,5 +181,6 @@ namespace RentaDeAutos.SubForms
         private System.Windows.Forms.Button hourMinus;
         private System.Windows.Forms.Button AcceptButton;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }

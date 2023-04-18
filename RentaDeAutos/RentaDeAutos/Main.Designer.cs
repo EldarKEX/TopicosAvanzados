@@ -47,9 +47,11 @@ namespace RentaDeAutos
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.panelClock = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbLastName = new System.Windows.Forms.TextBox();
             this.rentcarDataSet1 = new RentaDeAutos.RENTCARDataSet();
             this.purchaseTableAdapter = new RentaDeAutos.RENTCARDataSetTableAdapters.PurchaseTableAdapter();
+            this.labelError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.rentcarDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,14 +82,15 @@ namespace RentaDeAutos
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(26, 138);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 13);
+            this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Fecha de inicio";
+            this.label2.Text = "Fecha de salida";
             // 
             // tbDateStart
             // 
             this.tbDateStart.Location = new System.Drawing.Point(29, 166);
             this.tbDateStart.Name = "tbDateStart";
+            this.tbDateStart.ReadOnly = true;
             this.tbDateStart.Size = new System.Drawing.Size(168, 20);
             this.tbDateStart.TabIndex = 3;
             // 
@@ -105,6 +108,7 @@ namespace RentaDeAutos
             // 
             this.tbDateFinal.Location = new System.Drawing.Point(29, 223);
             this.tbDateFinal.Name = "tbDateFinal";
+            this.tbDateFinal.ReadOnly = true;
             this.tbDateFinal.Size = new System.Drawing.Size(168, 20);
             this.tbDateFinal.TabIndex = 5;
             // 
@@ -123,31 +127,32 @@ namespace RentaDeAutos
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(29, 204);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 13);
+            this.label3.Size = new System.Drawing.Size(148, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Fecha de entrega";
+            this.label3.Text = "Fecha de devolucion del auto";
             // 
             // tbAmount
             // 
             this.tbAmount.Location = new System.Drawing.Point(97, 267);
             this.tbAmount.Name = "tbAmount";
-            this.tbAmount.Size = new System.Drawing.Size(100, 20);
+            this.tbAmount.ReadOnly = true;
+            this.tbAmount.Size = new System.Drawing.Size(133, 20);
             this.tbAmount.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 270);
+            this.label4.Location = new System.Drawing.Point(21, 271);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Monto       $";
+            this.label4.Text = "Monto total   $";
             // 
             // tbCustomer
             // 
             this.tbCustomer.Location = new System.Drawing.Point(97, 303);
             this.tbCustomer.Name = "tbCustomer";
-            this.tbCustomer.Size = new System.Drawing.Size(100, 20);
+            this.tbCustomer.Size = new System.Drawing.Size(133, 20);
             this.tbCustomer.TabIndex = 10;
             // 
             // label5
@@ -155,14 +160,14 @@ namespace RentaDeAutos
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(29, 306);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Cliente";
+            this.label5.Text = "Nombre";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 346);
+            this.label6.Location = new System.Drawing.Point(29, 378);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 12;
@@ -170,15 +175,15 @@ namespace RentaDeAutos
             // 
             // tbCel
             // 
-            this.tbCel.Location = new System.Drawing.Point(97, 343);
+            this.tbCel.Location = new System.Drawing.Point(97, 375);
             this.tbCel.Name = "tbCel";
-            this.tbCel.Size = new System.Drawing.Size(100, 20);
+            this.tbCel.Size = new System.Drawing.Size(133, 20);
             this.tbCel.TabIndex = 13;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(31, 387);
+            this.label7.Location = new System.Drawing.Point(31, 416);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 13);
             this.label7.TabIndex = 14;
@@ -186,21 +191,21 @@ namespace RentaDeAutos
             // 
             // tbAddress
             // 
-            this.tbAddress.Location = new System.Drawing.Point(97, 387);
+            this.tbAddress.Location = new System.Drawing.Point(97, 416);
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(100, 20);
+            this.tbAddress.Size = new System.Drawing.Size(133, 20);
             this.tbAddress.TabIndex = 15;
             // 
             // panelClock
             // 
             this.panelClock.Location = new System.Drawing.Point(367, 27);
             this.panelClock.Name = "panelClock";
-            this.panelClock.Size = new System.Drawing.Size(200, 200);
+            this.panelClock.Size = new System.Drawing.Size(204, 204);
             this.panelClock.TabIndex = 16;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(309, 387);
+            this.btnSave.Location = new System.Drawing.Point(399, 287);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(125, 36);
             this.btnSave.TabIndex = 17;
@@ -208,14 +213,21 @@ namespace RentaDeAutos
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // button5
+            // label8
             // 
-            this.button5.Location = new System.Drawing.Point(465, 387);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(119, 36);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "Historial";
-            this.button5.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(31, 339);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Apellido";
+            // 
+            // tbLastName
+            // 
+            this.tbLastName.Location = new System.Drawing.Point(97, 338);
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Size = new System.Drawing.Size(133, 20);
+            this.tbLastName.TabIndex = 20;
             // 
             // rentcarDataSet1
             // 
@@ -226,13 +238,25 @@ namespace RentaDeAutos
             // 
             this.purchaseTableAdapter.ClearBeforeFill = true;
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(28, 243);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 15);
+            this.labelError.TabIndex = 21;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(714, 564);
-            this.Controls.Add(this.button5);
+            this.ClientSize = new System.Drawing.Size(615, 461);
+            this.Controls.Add(this.labelError);
+            this.Controls.Add(this.tbLastName);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panelClock);
             this.Controls.Add(this.tbAddress);
@@ -283,9 +307,11 @@ namespace RentaDeAutos
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.Panel panelClock;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button button5;
         private RENTCARDataSet rentcarDataSet1;
         private RENTCARDataSetTableAdapters.PurchaseTableAdapter purchaseTableAdapter;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbLastName;
+        private System.Windows.Forms.Label labelError;
     }
 }
 

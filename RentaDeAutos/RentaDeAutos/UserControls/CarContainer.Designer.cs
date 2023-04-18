@@ -81,9 +81,9 @@ namespace RentaDeAutos.UserControls
             this.lCost.BackColor = System.Drawing.Color.Transparent;
             this.lCost.Location = new System.Drawing.Point(124, 82);
             this.lCost.Name = "lCost";
-            this.lCost.Size = new System.Drawing.Size(37, 13);
+            this.lCost.Size = new System.Drawing.Size(72, 13);
             this.lCost.TabIndex = 3;
-            this.lCost.Text = "Costo:";
+            this.lCost.Text = "Costo por dia:";
             this.lCost.Click += new System.EventHandler(this.lColor_Click);
             this.lCost.MouseEnter += new System.EventHandler(this.lColor_MouseEnter);
             this.lCost.MouseLeave += new System.EventHandler(this.lColor_MouseLeave);

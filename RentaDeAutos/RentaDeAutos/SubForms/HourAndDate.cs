@@ -34,7 +34,7 @@ namespace RentaDeAutos.SubForms
 
         void InitializeClock()
         {
-            clock = new Clock();
+            clock = new Clock(true);
             clock.TopLevel = false;
             clock.AutoScroll = true;
             clock.Dock = DockStyle.Fill;
@@ -56,8 +56,16 @@ namespace RentaDeAutos.SubForms
 
         void UpdateText()
         {
-            SelectedDay.Text = hourDateClass.GetDate();
-            clock.clockClass.DrawClock(hourDateClass.Hour, hourDateClass.Minute);
+            try
+            {
+                SelectedDay.Text = hourDateClass.GetDate();
+                clock.UpdateClock(hourDateClass.Hour, hourDateClass.Minute);
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+            
         }
         private void hourPlus_Click(object sender, EventArgs e)
         {
@@ -97,19 +105,34 @@ namespace RentaDeAutos.SubForms
 
         private void HourAndDate_Shown(object sender, EventArgs e)
         {
-            clock.InitClock();
+
         }
 
         private void AcceptButton_Click(object sender, EventArgs e)
         {
-            isClosed = true;
-            this.Close();
+            try
+            {
+                isClosed = true;
+                this.Close();
+
+            }catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            isClosed = true;
-            this.Close();
+            try
+            {
+                isClosed = true;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

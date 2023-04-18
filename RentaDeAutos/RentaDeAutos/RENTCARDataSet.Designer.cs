@@ -672,6 +672,10 @@ namespace RentaDeAutos {
             
             private global::System.Data.DataColumn columnCarID;
             
+            private global::System.Data.DataColumn columnName;
+            
+            private global::System.Data.DataColumn columnLastName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PurchaseDataTable() {
@@ -771,6 +775,22 @@ namespace RentaDeAutos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NameColumn {
+                get {
+                    return this.columnName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn LastNameColumn {
+                get {
+                    return this.columnLastName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -806,7 +826,7 @@ namespace RentaDeAutos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PurchaseRow AddPurchaseRow(System.DateTime DateStart, System.DateTime DateEnd, double Amount, string Client, string Cel, string AddressP, CarRow parentCarRowByFK) {
+            public PurchaseRow AddPurchaseRow(System.DateTime DateStart, System.DateTime DateEnd, double Amount, string Client, string Cel, string AddressP, CarRow parentCarRowByFK, string Name, string LastName) {
                 PurchaseRow rowPurchaseRow = ((PurchaseRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -816,7 +836,9 @@ namespace RentaDeAutos {
                         Client,
                         Cel,
                         AddressP,
-                        null};
+                        null,
+                        Name,
+                        LastName};
                 if ((parentCarRowByFK != null)) {
                     columnValuesArray[7] = parentCarRowByFK[0];
                 }
@@ -857,6 +879,8 @@ namespace RentaDeAutos {
                 this.columnCel = base.Columns["Cel"];
                 this.columnAddressP = base.Columns["AddressP"];
                 this.columnCarID = base.Columns["CarID"];
+                this.columnName = base.Columns["Name"];
+                this.columnLastName = base.Columns["LastName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -878,6 +902,10 @@ namespace RentaDeAutos {
                 base.Columns.Add(this.columnAddressP);
                 this.columnCarID = new global::System.Data.DataColumn("CarID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCarID);
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnLastName = new global::System.Data.DataColumn("LastName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPurchaseID}, true));
                 this.columnPurchaseID.AutoIncrement = true;
@@ -889,6 +917,8 @@ namespace RentaDeAutos {
                 this.columnClient.MaxLength = 40;
                 this.columnCel.MaxLength = 12;
                 this.columnAddressP.MaxLength = 40;
+                this.columnName.MaxLength = 40;
+                this.columnLastName.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1331,6 +1361,38 @@ namespace RentaDeAutos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Name {
+                get {
+                    try {
+                        return ((string)(this[this.tablePurchase.NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Name\' de la tabla \'Purchase\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePurchase.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string LastName {
+                get {
+                    try {
+                        return ((string)(this[this.tablePurchase.LastNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'LastName\' de la tabla \'Purchase\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePurchase.LastNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public CarRow CarRow {
                 get {
                     return ((CarRow)(this.GetParentRow(this.Table.ParentRelations["FK"])));
@@ -1422,6 +1484,30 @@ namespace RentaDeAutos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCarIDNull() {
                 this[this.tablePurchase.CarIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNameNull() {
+                return this.IsNull(this.tablePurchase.NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNameNull() {
+                this[this.tablePurchase.NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsLastNameNull() {
+                return this.IsNull(this.tablePurchase.LastNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetLastNameNull() {
+                this[this.tablePurchase.LastNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2069,10 +2155,12 @@ SELECT CarID, Brand, Color, Cost, ImageData, Model FROM Car WHERE (CarID = @CarI
             tableMapping.ColumnMappings.Add("Cel", "Cel");
             tableMapping.ColumnMappings.Add("AddressP", "AddressP");
             tableMapping.ColumnMappings.Add("CarID", "CarID");
+            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("LastName", "LastName");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Purchase] WHERE (([PurchaseID] = @Original_PurchaseID) AND ((@IsNull_DateStart = 1 AND [DateStart] IS NULL) OR ([DateStart] = @Original_DateStart)) AND ((@IsNull_DateEnd = 1 AND [DateEnd] IS NULL) OR ([DateEnd] = @Original_DateEnd)) AND ((@IsNull_Amount = 1 AND [Amount] IS NULL) OR ([Amount] = @Original_Amount)) AND ((@IsNull_Client = 1 AND [Client] IS NULL) OR ([Client] = @Original_Client)) AND ((@IsNull_Cel = 1 AND [Cel] IS NULL) OR ([Cel] = @Original_Cel)) AND ((@IsNull_AddressP = 1 AND [AddressP] IS NULL) OR ([AddressP] = @Original_AddressP)) AND ((@IsNull_CarID = 1 AND [CarID] IS NULL) OR ([CarID] = @Original_CarID)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Purchase] WHERE (([PurchaseID] = @Original_PurchaseID) AND ((@IsNull_DateStart = 1 AND [DateStart] IS NULL) OR ([DateStart] = @Original_DateStart)) AND ((@IsNull_DateEnd = 1 AND [DateEnd] IS NULL) OR ([DateEnd] = @Original_DateEnd)) AND ((@IsNull_Amount = 1 AND [Amount] IS NULL) OR ([Amount] = @Original_Amount)) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Cel = 1 AND [Cel] IS NULL) OR ([Cel] = @Original_Cel)) AND ((@IsNull_AddressP = 1 AND [AddressP] IS NULL) OR ([AddressP] = @Original_AddressP)) AND ((@IsNull_CarID = 1 AND [CarID] IS NULL) OR ([CarID] = @Original_CarID)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_LastName)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateStart", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateStart", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2081,38 +2169,42 @@ SELECT CarID, Brand, Color, Cost, ImageData, Model FROM Car WHERE (CarID = @CarI
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateEnd", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateEnd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Client", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Client", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Cel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cel", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cel", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AddressP", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressP", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AddressP", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressP", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CarID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CarID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CarID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CarID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LastName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Purchase] ([DateStart], [DateEnd], [Amount], [Client], [Cel], [AddressP], [CarID]) VALUES (@DateStart, @DateEnd, @Amount, @Client, @Cel, @AddressP, @CarID);
-SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM Purchase WHERE (PurchaseID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Purchase] ([DateStart], [DateEnd], [Amount], [Name], [Cel], [AddressP], [CarID], [LastName]) VALUES (@DateStart, @DateEnd, @Amount, @Name, @Cel, @AddressP, @CarID, @LastName);
+SELECT PurchaseID, DateStart, DateEnd, Amount, Name, Cel, AddressP, CarID, LastName FROM Purchase WHERE (PurchaseID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateStart", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateStart", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateEnd", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateEnd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cel", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AddressP", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CarID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CarID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Purchase] SET [DateStart] = @DateStart, [DateEnd] = @DateEnd, [Amount] = @Amount, [Client] = @Client, [Cel] = @Cel, [AddressP] = @AddressP, [CarID] = @CarID WHERE (([PurchaseID] = @Original_PurchaseID) AND ((@IsNull_DateStart = 1 AND [DateStart] IS NULL) OR ([DateStart] = @Original_DateStart)) AND ((@IsNull_DateEnd = 1 AND [DateEnd] IS NULL) OR ([DateEnd] = @Original_DateEnd)) AND ((@IsNull_Amount = 1 AND [Amount] IS NULL) OR ([Amount] = @Original_Amount)) AND ((@IsNull_Client = 1 AND [Client] IS NULL) OR ([Client] = @Original_Client)) AND ((@IsNull_Cel = 1 AND [Cel] IS NULL) OR ([Cel] = @Original_Cel)) AND ((@IsNull_AddressP = 1 AND [AddressP] IS NULL) OR ([AddressP] = @Original_AddressP)) AND ((@IsNull_CarID = 1 AND [CarID] IS NULL) OR ([CarID] = @Original_CarID)));
-SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM Purchase WHERE (PurchaseID = @PurchaseID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Purchase] SET [DateStart] = @DateStart, [DateEnd] = @DateEnd, [Amount] = @Amount, [Name] = @Name, [Cel] = @Cel, [AddressP] = @AddressP, [CarID] = @CarID, [LastName] = @LastName WHERE (([PurchaseID] = @Original_PurchaseID) AND ((@IsNull_DateStart = 1 AND [DateStart] IS NULL) OR ([DateStart] = @Original_DateStart)) AND ((@IsNull_DateEnd = 1 AND [DateEnd] IS NULL) OR ([DateEnd] = @Original_DateEnd)) AND ((@IsNull_Amount = 1 AND [Amount] IS NULL) OR ([Amount] = @Original_Amount)) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Cel = 1 AND [Cel] IS NULL) OR ([Cel] = @Original_Cel)) AND ((@IsNull_AddressP = 1 AND [AddressP] IS NULL) OR ([AddressP] = @Original_AddressP)) AND ((@IsNull_CarID = 1 AND [CarID] IS NULL) OR ([CarID] = @Original_CarID)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_LastName)));
+SELECT PurchaseID, DateStart, DateEnd, Amount, Name, Cel, AddressP, CarID, LastName FROM Purchase WHERE (PurchaseID = @PurchaseID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateStart", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateStart", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateEnd", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateEnd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cel", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AddressP", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CarID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CarID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateStart", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateStart", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateStart", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateStart", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2120,14 +2212,16 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateEnd", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateEnd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Client", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Client", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Cel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cel", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cel", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AddressP", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressP", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AddressP", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressP", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CarID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CarID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CarID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CarID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LastName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2148,16 +2242,17 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"INSERT INTO [Purchase] ([DateStart], [DateEnd], [Amount], [Client], [Cel], [AddressP], [CarID]) VALUES (@DateStart, @DateEnd, @Amount, @Client, @Cel, @AddressP, @CarID);
-SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM Purchase WHERE (PurchaseID = SCOPE_IDENTITY())";
+            this._commandCollection[1].CommandText = @"INSERT INTO [Purchase] ([DateStart], [DateEnd], [Amount], [Name], [Cel], [AddressP], [CarID], [LastName]) VALUES (@DateStart, @DateEnd, @Amount, @Name, @Cel, @AddressP, @CarID, @LastName);
+SELECT PurchaseID, DateStart, DateEnd, Amount, Name, Cel, AddressP, CarID, LastName FROM Purchase WHERE (PurchaseID = SCOPE_IDENTITY())";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateStart", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DateStart", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateEnd", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DateEnd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client", global::System.Data.SqlDbType.VarChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "Client", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cel", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, "Cel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AddressP", global::System.Data.SqlDbType.VarChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "AddressP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CarID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CarID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2217,7 +2312,7 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PurchaseID, global::System.Nullable<global::System.DateTime> Original_DateStart, global::System.Nullable<global::System.DateTime> Original_DateEnd, global::System.Nullable<double> Original_Amount, string Original_Client, string Original_Cel, string Original_AddressP, global::System.Nullable<int> Original_CarID) {
+        public virtual int Delete(int Original_PurchaseID, global::System.Nullable<global::System.DateTime> Original_DateStart, global::System.Nullable<global::System.DateTime> Original_DateEnd, global::System.Nullable<double> Original_Amount, string Original_Name, string Original_Cel, string Original_AddressP, global::System.Nullable<int> Original_CarID, string Original_LastName) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PurchaseID));
             if ((Original_DateStart.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -2243,13 +2338,13 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_Client == null)) {
+            if ((Original_Name == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Client));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Name));
             }
             if ((Original_Cel == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
@@ -2275,6 +2370,14 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
+            if ((Original_LastName == null)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_LastName));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2295,7 +2398,7 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> DateStart, global::System.Nullable<global::System.DateTime> DateEnd, global::System.Nullable<double> Amount, string Client, string Cel, string AddressP, global::System.Nullable<int> CarID) {
+        public virtual int Insert(global::System.Nullable<global::System.DateTime> DateStart, global::System.Nullable<global::System.DateTime> DateEnd, global::System.Nullable<double> Amount, string Name, string Cel, string AddressP, global::System.Nullable<int> CarID, string LastName) {
             if ((DateStart.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(DateStart.Value));
             }
@@ -2314,11 +2417,11 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Client == null)) {
+            if ((Name == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Client));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Name));
             }
             if ((Cel == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -2337,6 +2440,12 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((LastName == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(LastName));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2362,18 +2471,20 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
                     global::System.Nullable<global::System.DateTime> DateStart, 
                     global::System.Nullable<global::System.DateTime> DateEnd, 
                     global::System.Nullable<double> Amount, 
-                    string Client, 
+                    string Name, 
                     string Cel, 
                     string AddressP, 
                     global::System.Nullable<int> CarID, 
+                    string LastName, 
                     int Original_PurchaseID, 
                     global::System.Nullable<global::System.DateTime> Original_DateStart, 
                     global::System.Nullable<global::System.DateTime> Original_DateEnd, 
                     global::System.Nullable<double> Original_Amount, 
-                    string Original_Client, 
+                    string Original_Name, 
                     string Original_Cel, 
                     string Original_AddressP, 
                     global::System.Nullable<int> Original_CarID, 
+                    string Original_LastName, 
                     int PurchaseID) {
             if ((DateStart.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(DateStart.Value));
@@ -2393,11 +2504,11 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Client == null)) {
+            if ((Name == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Client));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Name));
             }
             if ((Cel == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -2417,64 +2528,78 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_PurchaseID));
-            if ((Original_DateStart.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_DateStart.Value));
+            if ((LastName == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(LastName));
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_PurchaseID));
+            if ((Original_DateStart.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_DateStart.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Original_DateEnd.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_DateEnd.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_DateEnd.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((Original_Amount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((double)(Original_Amount.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((double)(Original_Amount.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_Client == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            if ((Original_Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Client));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Name));
             }
             if ((Original_Cel == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Cel));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Cel));
             }
             if ((Original_AddressP == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_AddressP));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_AddressP));
             }
             if ((Original_CarID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_CarID.Value));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_CarID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(PurchaseID));
+            if ((Original_LastName == null)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_LastName));
+            }
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(PurchaseID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2495,15 +2620,32 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> DateStart, global::System.Nullable<global::System.DateTime> DateEnd, global::System.Nullable<double> Amount, string Client, string Cel, string AddressP, global::System.Nullable<int> CarID, int Original_PurchaseID, global::System.Nullable<global::System.DateTime> Original_DateStart, global::System.Nullable<global::System.DateTime> Original_DateEnd, global::System.Nullable<double> Original_Amount, string Original_Client, string Original_Cel, string Original_AddressP, global::System.Nullable<int> Original_CarID) {
-            return this.Update(DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID, Original_PurchaseID, Original_DateStart, Original_DateEnd, Original_Amount, Original_Client, Original_Cel, Original_AddressP, Original_CarID, Original_PurchaseID);
+        public virtual int Update(
+                    global::System.Nullable<global::System.DateTime> DateStart, 
+                    global::System.Nullable<global::System.DateTime> DateEnd, 
+                    global::System.Nullable<double> Amount, 
+                    string Name, 
+                    string Cel, 
+                    string AddressP, 
+                    global::System.Nullable<int> CarID, 
+                    string LastName, 
+                    int Original_PurchaseID, 
+                    global::System.Nullable<global::System.DateTime> Original_DateStart, 
+                    global::System.Nullable<global::System.DateTime> Original_DateEnd, 
+                    global::System.Nullable<double> Original_Amount, 
+                    string Original_Name, 
+                    string Original_Cel, 
+                    string Original_AddressP, 
+                    global::System.Nullable<int> Original_CarID, 
+                    string Original_LastName) {
+            return this.Update(DateStart, DateEnd, Amount, Name, Cel, AddressP, CarID, LastName, Original_PurchaseID, Original_DateStart, Original_DateEnd, Original_Amount, Original_Name, Original_Cel, Original_AddressP, Original_CarID, Original_LastName, Original_PurchaseID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(global::System.Nullable<global::System.DateTime> DateStart, global::System.Nullable<global::System.DateTime> DateEnd, global::System.Nullable<double> Amount, string Client, string Cel, string AddressP, global::System.Nullable<int> CarID) {
+        public virtual int InsertQuery(global::System.Nullable<global::System.DateTime> DateStart, global::System.Nullable<global::System.DateTime> DateEnd, global::System.Nullable<double> Amount, string Name, string Cel, string AddressP, global::System.Nullable<int> CarID, string LastName) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             if ((DateStart.HasValue == true)) {
                 command.Parameters[0].Value = ((System.DateTime)(DateStart.Value));
@@ -2523,11 +2665,11 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
             else {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Client == null)) {
+            if ((Name == null)) {
                 command.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[3].Value = ((string)(Client));
+                command.Parameters[3].Value = ((string)(Name));
             }
             if ((Cel == null)) {
                 command.Parameters[4].Value = global::System.DBNull.Value;
@@ -2546,6 +2688,12 @@ SELECT PurchaseID, DateStart, DateEnd, Amount, Client, Cel, AddressP, CarID FROM
             }
             else {
                 command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((LastName == null)) {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[7].Value = ((string)(LastName));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

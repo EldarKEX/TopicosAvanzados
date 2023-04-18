@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using RentaDeAutos.Class;
 using RentaDeAutos.SubForms;
 
+
 namespace RentaDeAutos
 {
     public partial class Main : Form
@@ -18,6 +19,7 @@ namespace RentaDeAutos
         private CarGallery carGallery;
         private HourAndDate hourDateStart;
         private HourAndDate hourDateFinal;
+        private MainClass mainClass;
 
         private Thread clockThread;
         private Thread carGalleryThread;
@@ -34,11 +36,13 @@ namespace RentaDeAutos
             InitializeClock();
             InitializeCarGallery();
             InitializeHourDate();
+
+            mainClass = new MainClass();
         }
 
         void InitializeClock()
         {
-            clock = new Clock();            
+            clock = new Clock(false);            
             clock.TopLevel = false;
             clock.AutoScroll = true;
             clock.Dock = DockStyle.Fill;
@@ -75,6 +79,30 @@ namespace RentaDeAutos
             }
         }
 
+
+        void CalcTotalAmount()
+        {
+            if (tbDateStart.Text != "" && tbDateFinal.Text != "")
+            {
+                Double total = (hourDateFinal.GetDateTime() - hourDateStart.GetDateTime()).TotalDays;
+                
+                if(total <= 0)
+                {
+                    labelError.Text = "La fecha de devolucion debe ser mayor a la fecha de salida";
+                    return;
+                }
+
+                labelError.Text = "";
+
+                if (carGallery.DataCar.Cost != "")
+                {
+                    
+                    total = total * Double.Parse(carGallery.DataCar.Cost);
+                    tbAmount.Text = String.Format("{0:F2}",total);
+                }
+            }
+        }
+
         void ShowCar()
         {
             int previousId = -1;
@@ -103,6 +131,7 @@ namespace RentaDeAutos
 
                 btnCar.Text = carGallery.DataCar.Brand + " - " + carGallery.DataCar.Model;
                 btnCar.Tag = carGallery.DataCar.Id;
+                CalcTotalAmount();
 
                 previousId = carGallery.DataCar.Id;
 
@@ -129,9 +158,11 @@ namespace RentaDeAutos
                     continue;
                 }
 
+                
 
                 fillTbStart(hourDateStart.GetDate());
-                          
+                CalcTotalAmount();
+
                 Thread.Sleep(500);
             }
         }
@@ -152,6 +183,7 @@ namespace RentaDeAutos
 
 
                 tbDateFinal.Text = hourDateFinal.GetDate();
+                CalcTotalAmount();
 
                 Thread.Sleep(500);
             }
@@ -169,38 +201,61 @@ namespace RentaDeAutos
 
         private void BtnCar_Click(object sender, EventArgs e)
         {
-            carGallery = new CarGallery();
-            carGallery.Show();
-            _event.Set();
+            try
+            {
+                carGallery = new CarGallery();
+                carGallery.Show();
+                _event.Set();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }        
         }
 
         private void DateStart_Click(object sender, EventArgs e)
         {
-            hourDateStart = new HourAndDate();
-            hourDateStart.Show();
-            _event1.Set();
+            try
+            {
+                hourDateStart = new HourAndDate();
+                hourDateStart.Show();
+                _event1.Set();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'rentcarDataSet1.Purchase' Puede moverla o quitarla según sea necesario.
-            //this.purchaseTableAdapter.Fill(this.rentcarDataSet1.Purchase);
+    
             CheckForIllegalCrossThreadCalls = false;
         }
 
         private void btnDateEnd_Click(object sender, EventArgs e)
         {
-            hourDateFinal = new HourAndDate();
-            hourDateFinal.Show();
-            _event2.Set();
+            try
+            {
+                hourDateFinal = new HourAndDate();
+                hourDateFinal.Show();
+                _event2.Set();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-           
-
+                mainClass.Error = "";
+                if (!mainClass.ValidateAll(tbCustomer.Text,tbLastName.Text,tbAmount.Text,tbAddress.Text,btnCar.Text,tbCel.Text))
+                {
+                    return;
+                }
+                
                 this.purchaseTableAdapter.InsertQuery(
                     hourDateStart.GetDateTime(),
                     hourDateFinal.GetDateTime(),
@@ -208,8 +263,11 @@ namespace RentaDeAutos
                     tbCustomer.Text,
                     tbCel.Text,
                     tbAddress.Text,
-                    int.Parse(btnCar.Tag.ToString())
+                    int.Parse(btnCar.Tag.ToString()),
+                    tbLastName.Text
                 );
+
+                MessageBox.Show("Datos Agregados Correctamente");
             }
             catch (Exception er)
             {

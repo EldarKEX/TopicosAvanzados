@@ -41,7 +41,7 @@ namespace RentaDeAutos.UserControls
             lModel.Text = "Modelo: " + carData.Model;
             lBrand.Text = "Marca: " + carData.Brand;
             lCost.Text = "Costo: " + carData.Cost;
-            lColor.Text = "Color: " + carData.Color;
+            lColor.Text = "Costo por dia: " + carData.Color;
         }
         public CarDataClass CarData { get => carData; set => carData = value; }
         
@@ -74,32 +74,75 @@ namespace RentaDeAutos.UserControls
 
         private void lColor_MouseEnter(object sender, EventArgs e)
         {
-            MouseEnterBack();
+            try
+            {
+                MouseEnterBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void lColor_MouseLeave(object sender, EventArgs e)
         {
-            MouseLeaveBack();
+            try
+            {
+                MouseLeaveBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }    
 
         private void CarContainer_MouseEnter(object sender, EventArgs e)
         {
-            MouseEnterBack();
+            try
+            {
+                MouseEnterBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void CarContainer_MouseLeave(object sender, EventArgs e)
-        {
-            MouseLeaveBack();
+        {           
+            try
+            {
+                MouseLeaveBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void lColor_Click(object sender, EventArgs e)
-        {
-            ClickBack(); 
+        {          
+            try
+            {
+                ClickBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void CarContainer_Click(object sender, EventArgs e)
         {
-            ClickBack();
+            try
+            {
+                ClickBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
     }
