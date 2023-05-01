@@ -9,6 +9,7 @@ using System.Threading;
 using System.Windows.Forms;
 using RentaDeAutos.Class;
 using RentaDeAutos.SubForms;
+using SqlRentCar;
 
 
 namespace RentaDeAutos
@@ -255,17 +256,20 @@ namespace RentaDeAutos
                 {
                     return;
                 }
-                
-                this.purchaseTableAdapter.InsertQuery(
-                    hourDateStart.GetDateTime(),
-                    hourDateFinal.GetDateTime(),
+
+
+                new SqlConexionClass().InsertData(
+                    hourDateStart.GetDateTime(), 
+                    hourDateFinal.GetDateTime(), 
                     Double.Parse(tbAmount.Text),
-                    tbCustomer.Text,
+                    tbCustomer.Text, 
                     tbCel.Text,
                     tbAddress.Text,
-                    int.Parse(btnCar.Tag.ToString()),
-                    tbLastName.Text
+                    tbLastName.Text,
+                    int.Parse(btnCar.Tag.ToString())                  
                 );
+
+             
 
                 MessageBox.Show("Datos Agregados Correctamente");
             }

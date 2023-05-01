@@ -64,6 +64,7 @@
     <Compile Include="Class\CarDataClass.cs" />
     <Compile Include="Class\CarGalleryClass.cs" />
     <Compile Include="Class\ClockClass.cs" />
+    <Compile Include="Class\HistoryClass.cs" />
     <Compile Include="Class\HourAndDateClass.cs" />
     <Compile Include="Class\MainClass.cs" />
     <Compile Include="Main.cs">
@@ -93,6 +94,12 @@
     </Compile>
     <Compile Include="SubForms\Clock.Designer.cs">
       <DependentUpon>Clock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\History.Designer.cs">
+      <DependentUpon>History.cs</DependentUpon>
     </Compile>
     <Compile Include="SubForms\HourAndDate.cs">
       <SubType>Form</SubType>
@@ -130,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubForms\Clock.resx">
       <DependentUpon>Clock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\History.resx">
+      <DependentUpon>History.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubForms\HourAndDate.resx">
       <DependentUpon>HourAndDate.cs</DependentUpon>

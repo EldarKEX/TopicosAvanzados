@@ -39,7 +39,15 @@ namespace RentaDeAutos.Class
         {
             foreach (DataRow carRow in table.Rows)
             {
-                CarDataClass car = new CarDataClass(carRow.CarID, Source(carRow.ImageData), carRow.Model, carRow.Brand, carRow.Color, carRow.Cost.ToString());
+                int id = (int)carRow[0];
+                byte[] ImageData = (byte[])carRow[4];
+                string Model = (string)carRow[5];
+                string Brand = (string)carRow[1];
+                string Color = (string)carRow[2];
+                string Cost = carRow[3].ToString();
+
+
+                CarDataClass car = new CarDataClass(id, Source(ImageData), Model, Brand, Color, Cost);
                 carList.Add(car);
             }
         }

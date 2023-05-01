@@ -44,6 +44,35 @@ namespace SqlRentCar
                 return null;
             }
         }
+
+        public void InsertData(DateTime DateStart,DateTime DateEnd,Double Amount,string Name, string Cel, string Address, string LastName ,int Id)
+        {
+            try
+            {
+                connection.Open();
+
+                SqlCommand command;
+                string sql = "INSERT INTO Purchase (DateStart,DateEnd,Amount,Name,Cel,AddressP,LastName,CarID) values (@DateStart,@DateEnd,@Amount,@Name,@Cel,@Address,@LastName,@Id)";
+                command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@DateStart", DateStart);
+                command.Parameters.AddWithValue("@DateEnd", DateEnd);
+                command.Parameters.AddWithValue("@Amount", Amount);
+                command.Parameters.AddWithValue("@Name", Name);
+                command.Parameters.AddWithValue("@Cel", Cel);
+                command.Parameters.AddWithValue("@Address", Address);
+                command.Parameters.AddWithValue("@LastName", LastName);
+                command.Parameters.AddWithValue("@Id", Id);
+                command.ExecuteNonQuery();
+
+                connection.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
         public DataTable TryConnection()
         {
             try

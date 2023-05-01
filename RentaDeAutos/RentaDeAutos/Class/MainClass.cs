@@ -36,6 +36,34 @@ namespace RentaDeAutos.Class
             error += "Todos los campos tienen que estar rellenados \n";
             return false;
         }
+
+
+        public bool ValidateName(string name)
+        {
+            foreach(char letter in name)
+            {
+                if (!Char.IsLetter(letter))
+                {
+                    error += "El nombre solo puede contener letras \n";
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool ValidateLastName(string lastName)
+        {
+            foreach (char letter in lastName)
+            {
+                if (!Char.IsLetter(letter))
+                {
+                    error += "El apellidos solo puede contener letras \n";
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public bool ValidateCar(string car)
         {
             if(car == "Elegir auto")
@@ -45,12 +73,15 @@ namespace RentaDeAutos.Class
             }
             return true;
         }
+
         public bool ValidateAll(string name, string lastName,string amount, string address, string car, string cel)
         {
             bool celb = ValidateCel(cel);
             bool carb = ValidateCar(car);
+            bool nameb = ValidateName(name);
+            bool lastNameb = ValidateLastName(lastName);
             bool tb =  ValidateTb(name, lastName, amount, address);
-            if (celb && carb && tb)
+            if (celb && carb && tb && nameb && lastNameb)
             {
                 return true;
             }

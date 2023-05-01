@@ -49,10 +49,7 @@ namespace RentaDeAutos
             this.btnSave = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.tbLastName = new System.Windows.Forms.TextBox();
-            this.rentcarDataSet1 = new RentaDeAutos.RENTCARDataSet();
-            this.purchaseTableAdapter = new RentaDeAutos.RENTCARDataSetTableAdapters.PurchaseTableAdapter();
             this.labelError = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.rentcarDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -205,7 +202,7 @@ namespace RentaDeAutos
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(399, 287);
+            this.btnSave.Location = new System.Drawing.Point(390, 355);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(125, 36);
             this.btnSave.TabIndex = 17;
@@ -228,15 +225,6 @@ namespace RentaDeAutos
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(133, 20);
             this.tbLastName.TabIndex = 20;
-            // 
-            // rentcarDataSet1
-            // 
-            this.rentcarDataSet1.DataSetName = "RENTCARDataSet";
-            this.rentcarDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // purchaseTableAdapter
-            // 
-            this.purchaseTableAdapter.ClearBeforeFill = true;
             // 
             // labelError
             // 
@@ -281,7 +269,6 @@ namespace RentaDeAutos
             this.Text = "Renta de automoviles";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.rentcarDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,8 +294,6 @@ namespace RentaDeAutos
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.Panel panelClock;
         private System.Windows.Forms.Button btnSave;
-        private RENTCARDataSet rentcarDataSet1;
-        private RENTCARDataSetTableAdapters.PurchaseTableAdapter purchaseTableAdapter;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Label labelError;

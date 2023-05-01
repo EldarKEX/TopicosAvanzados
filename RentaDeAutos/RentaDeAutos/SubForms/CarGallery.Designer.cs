@@ -32,9 +32,6 @@ namespace RentaDeAutos.SubForms
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.rENTCARDataSet = new RentaDeAutos.RENTCARDataSet();
-            this.carTableAdapter = new RentaDeAutos.RENTCARDataSetTableAdapters.CarTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.rENTCARDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -66,15 +63,6 @@ namespace RentaDeAutos.SubForms
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
-            // rENTCARDataSet
-            // 
-            this.rENTCARDataSet.DataSetName = "RENTCARDataSet";
-            this.rENTCARDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // carTableAdapter
-            // 
-            this.carTableAdapter.ClearBeforeFill = true;
-            // 
             // CarGallery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -87,7 +75,6 @@ namespace RentaDeAutos.SubForms
             this.Text = "CarGallery";
             this.Load += new System.EventHandler(this.CarGallery_Load);
             this.Shown += new System.EventHandler(this.CarGallery_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.rENTCARDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -96,7 +83,5 @@ namespace RentaDeAutos.SubForms
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancel;
-        private RENTCARDataSet rENTCARDataSet;
-        private RENTCARDataSetTableAdapters.CarTableAdapter carTableAdapter;
     }
 }

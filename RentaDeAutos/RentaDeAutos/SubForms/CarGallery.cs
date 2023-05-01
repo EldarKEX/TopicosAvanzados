@@ -57,8 +57,6 @@ namespace RentaDeAutos.SubForms
 
         private void CarGallery_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'rENTCARDataSet.Car' Puede moverla o quitarla según sea necesario.
-            this.carTableAdapter.Fill(this.rENTCARDataSet.Car);
            
         }
 
