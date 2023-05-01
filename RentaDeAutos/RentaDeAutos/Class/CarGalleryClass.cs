@@ -4,6 +4,7 @@ using System.Linq;
 using System.Drawing;
 using System.IO;
 using System.Text;
+using System.Data;
 using System.Windows.Forms;
 using RentaDeAutos.Class;
 using RentaDeAutos.UserControls;
@@ -13,11 +14,11 @@ namespace RentaDeAutos.Class
 {
     public class CarGalleryClass
     {
-        private RENTCARDataSet.CarDataTable table;
+        private DataTable table;
         private List<CarDataClass> carList;
         private CarContainer carContainer;
        
-        public CarGalleryClass(RENTCARDataSet.CarDataTable table) { 
+        public CarGalleryClass(DataTable table) { 
             this.table = table;
             carList = new List<CarDataClass>();
             carContainer = null; 
@@ -36,7 +37,7 @@ namespace RentaDeAutos.Class
 
         public void LoadInfoDatabase()
         {
-            foreach (RENTCARDataSet.CarRow carRow in table)
+            foreach (DataRow carRow in table.Rows)
             {
                 CarDataClass car = new CarDataClass(carRow.CarID, Source(carRow.ImageData), carRow.Model, carRow.Brand, carRow.Color, carRow.Cost.ToString());
                 carList.Add(car);

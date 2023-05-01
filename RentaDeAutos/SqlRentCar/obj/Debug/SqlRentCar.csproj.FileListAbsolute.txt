@@ -1,0 +1,6 @@
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\RentaDeAutos\SqlRentCar\obj\Debug\SqlRentCar.csproj.AssemblyReference.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\RentaDeAutos\SqlRentCar\obj\Debug\SqlRentCar.csproj.CoreCompileInputs.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\RentaDeAutos\SqlRentCar\bin\Debug\SqlRentCar.dll
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\RentaDeAutos\SqlRentCar\bin\Debug\SqlRentCar.pdb
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\RentaDeAutos\SqlRentCar\obj\Debug\SqlRentCar.dll
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\RentaDeAutos\SqlRentCar\obj\Debug\SqlRentCar.pdb

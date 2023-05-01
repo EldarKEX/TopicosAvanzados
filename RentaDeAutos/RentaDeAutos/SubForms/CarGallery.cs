@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using RentaDeAutos.Class;
 using RentaDeAutos.UserControls;
+using SqlRentCar;
 
 
 namespace RentaDeAutos.SubForms
@@ -17,13 +18,14 @@ namespace RentaDeAutos.SubForms
     public partial class CarGallery : Form
     {
         private CarGalleryClass carGalleryClass;
+        private SqlConexionClass sqlConexion;
         private bool thereIsData;
         private bool isClosed;
 
         public CarGallery()
         {
             InitializeComponent();
-            carGalleryClass = new CarGalleryClass(carTableAdapter.GetData());
+            carGalleryClass = new CarGalleryClass(new SqlConexionClass().FillTableCar());
             thereIsData = false;
             isClosed = false;
         }
