@@ -30,6 +30,19 @@ namespace RentaDeAutos.SubForms
             isClosed = false;
         }
 
+        public DataRow GetCarById(int id)
+        {
+            foreach(DataRow row in carGalleryClass.Table.Rows)
+            {
+                if ((int)row[0] == id)
+                {
+                    return row;
+                }
+            }
+
+            return null;
+        }
+
         public CarDataClass DataCar{
             get{
                 if (carGalleryClass.CarContainer == null)

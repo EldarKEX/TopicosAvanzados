@@ -21,6 +21,7 @@ namespace RentaDeAutos
         private HourAndDate hourDateStart;
         private HourAndDate hourDateFinal;
         private MainClass mainClass;
+        private bool thereIsUpdate;
 
         private Thread clockThread;
         private Thread carGalleryThread;
@@ -38,6 +39,7 @@ namespace RentaDeAutos
             InitializeCarGallery();
             InitializeHourDate();
 
+            thereIsUpdate = false;
             mainClass = new MainClass();
         }
 
@@ -247,28 +249,93 @@ namespace RentaDeAutos
             }
         }
 
+
+        
+        
+
+        public bool ValidateFields()
+        {
+            mainClass.Error = "";
+            if (!mainClass.ValidateAll(tbCustomer.Text, tbLastName.Text, tbAmount.Text, tbAddress.Text, btnCar.Text, tbCel.Text))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        void SavePurchase()
+        {    
+
+            if (tbFolio.Text != "")
+            {
+                new SqlConexionClass().InsertData(
+                    int.Parse(tbFolio.Text),
+                    hourDateStart.GetDateTime(),
+                    hourDateFinal.GetDateTime(),
+                    Double.Parse(tbAmount.Text),
+                    tbCustomer.Text,
+                    tbCel.Text,
+                    tbAddress.Text,
+                    tbLastName.Text,
+                    int.Parse(btnCar.Tag.ToString())
+                );
+                return;
+            }
+
+            new SqlConexionClass().InsertData(
+                hourDateStart.GetDateTime(),
+                hourDateFinal.GetDateTime(),
+                Double.Parse(tbAmount.Text),
+                tbCustomer.Text,
+                tbCel.Text,
+                tbAddress.Text,
+                tbLastName.Text,
+                int.Parse(btnCar.Tag.ToString())
+            );
+        }
+
+        void UpdatePurchase()
+        {
+
+            new SqlConexionClass().UpdateRecord(
+                int.Parse(tbFolio.Text),
+                hourDateStart.GetDateTime(),
+                hourDateFinal.GetDateTime(),
+                double.Parse(tbAmount.Text),
+                tbCustomer.Text,
+                tbCel.Text,
+                tbAddress.Text,
+                tbLastName.Text,
+                int.Parse(btnCar.Tag.ToString())
+            );
+
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                mainClass.Error = "";
-                if (!mainClass.ValidateAll(tbCustomer.Text,tbLastName.Text,tbAmount.Text,tbAddress.Text,btnCar.Text,tbCel.Text))
+
+                if (!ValidateFields())
                 {
                     return;
                 }
 
+                if (thereIsUpdate)
+                {
+                    UpdatePurchase();
+                    DialogResult dialogResult = MessageBox.Show("¿Desea guardar los cambios?", "Confirmacion", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.No)
+                    {
+                        return;
+                    }
 
-                new SqlConexionClass().InsertData(
-                    hourDateStart.GetDateTime(), 
-                    hourDateFinal.GetDateTime(), 
-                    Double.Parse(tbAmount.Text),
-                    tbCustomer.Text, 
-                    tbCel.Text,
-                    tbAddress.Text,
-                    tbLastName.Text,
-                    int.Parse(btnCar.Tag.ToString())                  
-                );
+                    MessageBox.Show("Datos Actualizados Correctamente");
 
+                    return;
+                }
+
+                SavePurchase();
              
 
                 MessageBox.Show("Datos Agregados Correctamente");
@@ -279,6 +346,96 @@ namespace RentaDeAutos
             }
         }
 
-       
+        private void tbFolio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+            
+        }
+
+        void EraseData()
+        {
+            tbDateStart.Text = "";
+            tbDateFinal.Text = "";
+            tbAmount.Text = "";
+            tbCustomer.Text = "";
+            tbCel.Text = "";
+            tbAddress.Text = "";
+            tbLastName.Text = "";
+            btnCar.Text = "Elegir Auto";
+            btnCar.Tag = -1;
+        }
+        void FillData(DataRow dataRow)
+        {
+            tbDateStart.Text = dataRow[1].ToString();
+            tbDateFinal.Text = dataRow[2].ToString();
+            tbAmount.Text = dataRow[3].ToString();
+            tbCustomer.Text = dataRow[4].ToString();
+            tbCel.Text = dataRow[5].ToString();
+            tbAddress.Text = dataRow[6].ToString();
+            tbLastName.Text = dataRow[8].ToString();
+
+            int index = (int)dataRow[7];
+            DataRow dataCar = new CarGallery().GetCarById(index);
+
+
+            btnCar.Text = dataCar[1].ToString() + " - " + dataCar[5].ToString();
+            btnCar.Tag = index;
+        }
+
+        private void tbFolio_TextChanged(object sender, EventArgs e)
+        {
+            if (tbFolio.Text == "")
+            {
+                thereIsUpdate = false;
+                btnSave.Text = "Guardar Compra";
+                EraseData();
+                return;
+            }
+            DataRow dataRow = new SqlConexionClass().GetRecordPurchase(int.Parse(tbFolio.Text));
+
+
+            if(dataRow == null)
+            {
+                if (thereIsUpdate)
+                {
+                    EraseData();
+                }
+                thereIsUpdate = false;
+                btnSave.Text = "Guardar Compra";
+                return;
+            }
+
+            
+
+
+            btnSave.Text = "Actualizar datos Compra";
+            thereIsUpdate = true;
+            FillData(dataRow);
+
+
+            
+        }
+
+        void AutoFolio()
+        {
+            DataRow data = new SqlConexionClass().GetNextId();
+            int id = int.Parse(data[0].ToString());
+            id++;
+            tbFolio.Text = id.ToString();
+        }
+        private void btnAasignar_Click(object sender, EventArgs e)
+        {
+            if (thereIsUpdate)
+            {
+                EraseData();
+                thereIsUpdate = false;
+            }
+            AutoFolio();
+            
+        }
     }
 }

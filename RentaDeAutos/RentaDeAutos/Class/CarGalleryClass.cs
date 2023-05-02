@@ -27,6 +27,7 @@ namespace RentaDeAutos.Class
 
         public List<CarDataClass> CarList { get => carList; set => carList = value; }
         public CarContainer CarContainer { get => carContainer; set => carContainer = value; }
+        public DataTable Table { get => table; set => table = value; }
 
         public Image Source(byte[] photoByte)
         {
