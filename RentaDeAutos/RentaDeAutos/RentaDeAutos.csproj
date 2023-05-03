@@ -107,12 +107,6 @@
     <Compile Include="SubForms\HourAndDate.Designer.cs">
       <DependentUpon>HourAndDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestSql.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TestSql.Designer.cs">
-      <DependentUpon>TestSql.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\CarContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -143,9 +137,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubForms\HourAndDate.resx">
       <DependentUpon>HourAndDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TestSql.resx">
-      <DependentUpon>TestSql.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CarContainer.resx">
       <DependentUpon>CarContainer.cs</DependentUpon>

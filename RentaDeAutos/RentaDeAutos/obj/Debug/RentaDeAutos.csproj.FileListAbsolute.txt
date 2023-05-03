@@ -100,5 +100,4 @@ C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\RentaDeAutos\RentaDeAu
 C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\RentaDeAutos\RentaDeAutos\bin\Debug\System.Data.SqlClient.dll
 C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\RentaDeAutos\RentaDeAutos\bin\Debug\SqlRentCar.pdb
 C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\RentaDeAutos\RentaDeAutos\bin\Debug\System.Data.SqlClient.xml
-C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\RentaDeAutos\RentaDeAutos\obj\Debug\RentaDeAutos.TestSql.resources
 C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\RentaDeAutos\RentaDeAutos\obj\Debug\RentaDeAutos.SubForms.History.resources

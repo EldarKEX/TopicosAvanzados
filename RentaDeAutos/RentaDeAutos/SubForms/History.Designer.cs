@@ -38,8 +38,9 @@ namespace RentaDeAutos.SubForms
             this.label4 = new System.Windows.Forms.Label();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbTotal = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnALL = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,15 +66,16 @@ namespace RentaDeAutos.SubForms
             this.Column7,
             this.Column8,
             this.Column9});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 81);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 81);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(648, 304);
+            this.dataGridView1.Size = new System.Drawing.Size(718, 304);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
             // 
             // cbCar
             // 
             this.cbCar.FormattingEnabled = true;
-            this.cbCar.Location = new System.Drawing.Point(16, 54);
+            this.cbCar.Location = new System.Drawing.Point(119, 51);
             this.cbCar.Name = "cbCar";
             this.cbCar.Size = new System.Drawing.Size(121, 21);
             this.cbCar.TabIndex = 1;
@@ -82,7 +84,7 @@ namespace RentaDeAutos.SubForms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(13, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 2;
@@ -91,7 +93,7 @@ namespace RentaDeAutos.SubForms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 38);
+            this.label2.Location = new System.Drawing.Point(116, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 3;
@@ -100,7 +102,7 @@ namespace RentaDeAutos.SubForms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(172, 35);
+            this.label3.Location = new System.Drawing.Point(278, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 4;
@@ -108,7 +110,7 @@ namespace RentaDeAutos.SubForms
             // 
             // dtpStart
             // 
-            this.dtpStart.Location = new System.Drawing.Point(175, 54);
+            this.dtpStart.Location = new System.Drawing.Point(281, 51);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(200, 20);
             this.dtpStart.TabIndex = 5;
@@ -117,7 +119,7 @@ namespace RentaDeAutos.SubForms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(381, 57);
+            this.label4.Location = new System.Drawing.Point(487, 54);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(15, 13);
             this.label4.TabIndex = 6;
@@ -125,7 +127,7 @@ namespace RentaDeAutos.SubForms
             // 
             // dtpEnd
             // 
-            this.dtpEnd.Location = new System.Drawing.Point(403, 54);
+            this.dtpEnd.Location = new System.Drawing.Point(509, 51);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(200, 20);
             this.dtpEnd.TabIndex = 7;
@@ -134,18 +136,19 @@ namespace RentaDeAutos.SubForms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(454, 401);
+            this.label5.Location = new System.Drawing.Point(506, 398);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Total ganancia:";
             // 
-            // textBox1
+            // tbTotal
             // 
-            this.textBox1.Location = new System.Drawing.Point(541, 398);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(123, 20);
-            this.textBox1.TabIndex = 9;
+            this.tbTotal.Location = new System.Drawing.Point(593, 395);
+            this.tbTotal.Name = "tbTotal";
+            this.tbTotal.ReadOnly = true;
+            this.tbTotal.Size = new System.Drawing.Size(123, 20);
+            this.tbTotal.TabIndex = 9;
             // 
             // btnDelete
             // 
@@ -156,6 +159,16 @@ namespace RentaDeAutos.SubForms
             this.btnDelete.Text = "Borrar";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnALL
+            // 
+            this.btnALL.Location = new System.Drawing.Point(9, 51);
+            this.btnALL.Name = "btnALL";
+            this.btnALL.Size = new System.Drawing.Size(75, 23);
+            this.btnALL.TabIndex = 11;
+            this.btnALL.Text = "Todos";
+            this.btnALL.UseVisualStyleBackColor = true;
+            this.btnALL.Click += new System.EventHandler(this.btnALL_Click);
             // 
             // Column1
             // 
@@ -206,17 +219,20 @@ namespace RentaDeAutos.SubForms
             // 
             // Column9
             // 
+            this.Column9.FillWeight = 150F;
             this.Column9.HeaderText = "Carro rentado";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
+            this.Column9.Width = 150;
             // 
             // History
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 435);
+            this.ClientSize = new System.Drawing.Size(728, 435);
+            this.Controls.Add(this.btnALL);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbTotal);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpEnd);
             this.Controls.Add(this.label4);
@@ -228,6 +244,7 @@ namespace RentaDeAutos.SubForms
             this.Controls.Add(this.dataGridView1);
             this.Name = "History";
             this.Text = "History";
+            this.Shown += new System.EventHandler(this.History_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -245,8 +262,9 @@ namespace RentaDeAutos.SubForms
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbTotal;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnALL;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

@@ -13,10 +13,13 @@ namespace RentaDeAutos.SubForms
 {
     public partial class History : Form
     {
+
+        private bool thereIsFilterALL;
         public History()
         {
             InitializeComponent();
             InitializeComboBox();
+            thereIsFilterALL = true;
         }
 
 
@@ -31,9 +34,23 @@ namespace RentaDeAutos.SubForms
                 cbCar.Items.Add(row["Brand"].ToString() + " - " + row["Model"].ToString());
             }
 
-            cbCar.SelectedIndex = 0;
             
         }
+
+        void CalculateTotalAmount(DataTable data)
+        {
+            double total = 0;
+
+            foreach (DataRow row in data.Rows)
+            {
+                total += (double)row["Amount"];
+            }
+
+            tbTotal.Text = total.ToString();
+        }
+
+
+
 
         void UpdateDataGrid()
         {
@@ -41,13 +58,30 @@ namespace RentaDeAutos.SubForms
             DataTable data = new SqlConexionClass().GetByFilter(cbCar.SelectedIndex, dtpStart.Value, dtpEnd.Value);
             foreach(DataRow row in data.Rows)
             {
-                dataGridView1.Rows.Add(row["PurchaseID"],row["DateStart"],row["DateEnd"],row["Amount"],row["Name"],row["LastName"],row["Cel"],row["AddressP"],"");
+                dataGridView1.Rows.Add(row["PurchaseID"],row["DateStart"],row["DateEnd"],row["Amount"],row["Name"],row["LastName"],row["Cel"],row["AddressP"],row["Brand"] + " - " + row["Model"]);
             }
+
+            CalculateTotalAmount(data);
         }
+
+        void UpdateDataGrid(DataTable data)
+        {
+            dataGridView1.Rows.Clear();
+            foreach (DataRow row in data.Rows)
+            {
+                dataGridView1.Rows.Add(row["PurchaseID"], row["DateStart"], row["DateEnd"], row["Amount"], row["Name"], row["LastName"], row["Cel"], row["AddressP"], row["Brand"] + " - " + row["Model"]);
+            }
+
+            CalculateTotalAmount(data);
+        }
+
+
+
         private void cbCar_SelectedIndexChanged(object sender, EventArgs e)
         {
             try {
                 UpdateDataGrid();
+                thereIsFilterALL = false;
 
             }
             catch (Exception ex)
@@ -57,17 +91,51 @@ namespace RentaDeAutos.SubForms
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            int selectedRow = int.Parse(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            DialogResult dialogResult = MessageBox.Show("¿Desea eliminar el registro seleccionado?", "Confirmacion", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
 
+            new SqlConexionClass().DeleteRecordId(selectedRow);
+
+            if (thereIsFilterALL)
+            {
+                UpdateDataGrid(new SqlConexionClass().FillPurchase());
+                return;
+            }
+
+            UpdateDataGrid();
+            
         }
 
         private void dtpStart_ValueChanged(object sender, EventArgs e)
         {
             UpdateDataGrid();
+            thereIsFilterALL = false;
         }
 
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
         {
             UpdateDataGrid();
+            thereIsFilterALL = false;
+        }
+
+        private void btnALL_Click(object sender, EventArgs e)
+        {
+            UpdateDataGrid(new SqlConexionClass().FillPurchase());
+            thereIsFilterALL = true;
+        }
+
+        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void History_Shown(object sender, EventArgs e)
+        {
+            UpdateDataGrid(new SqlConexionClass().FillPurchase());
         }
     }
 }
