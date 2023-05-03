@@ -195,6 +195,45 @@ namespace SqlRentCar
                 return null;
             }
         } 
+        
+        public DataTable GetByFilter(int id, DateTime dateStart, DateTime dateEnd)
+        {
+            try
+            {
+                connection.Open();
+                DataTable data = new DataTable();
+                SqlCommand command;
+
+                string sql = "SELECT * FROM Purchase Where CarID = " + id.ToString() + " and DateStart between '" + dateStart.Date.ToString("yyyy-MM-dd")  +"' and  '" + dateEnd.Date.ToString("yyyy-MM-dd") + "'";
+
+                //select* from Purchase where CarID = 2 and DateStart between '2023-04-01' and '2023-05-30'
+
+
+
+                if (id == 0)
+                {
+                    sql = "SELECT * FROM Purchase Where DateStart between '" + dateStart.Date.ToString("yyyy-MM-dd") + "' and '" + dateEnd.Date.ToString("yyyy-MM-dd")+"'";
+                }
+
+ 
+                SqlDataReader dataReader;
+
+                command = new SqlCommand(sql, connection);
+                dataReader = command.ExecuteReader();
+
+                data.Load(dataReader);
+
+                connection.Close();
+
+                return data;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+        }
 
         public DataRow GetNextId()
         {
