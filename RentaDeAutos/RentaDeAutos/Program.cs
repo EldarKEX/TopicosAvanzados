@@ -16,7 +16,7 @@ namespace RentaDeAutos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SubForms.History());
+            Application.Run(new Main());
         }
     }
 }

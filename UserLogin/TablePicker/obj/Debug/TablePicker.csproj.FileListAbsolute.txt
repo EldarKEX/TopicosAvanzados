@@ -1,0 +1,16 @@
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\bin\Debug\TablePicker.exe.config
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\bin\Debug\TablePicker.exe
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\bin\Debug\TablePicker.pdb
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\bin\Debug\SqlLibrary.dll
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\bin\Debug\UserLogin.dll
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\bin\Debug\UserLogin.pdb
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\bin\Debug\SqlLibrary.pdb
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\obj\Debug\TablePicker.csproj.AssemblyReference.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\obj\Debug\TablePicker.Login.resources
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\obj\Debug\TablePicker.Main.resources
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\obj\Debug\TablePicker.Properties.Resources.resources
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\obj\Debug\TablePicker.csproj.GenerateResource.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\obj\Debug\TablePicker.csproj.CoreCompileInputs.cache
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\obj\Debug\TablePicker.csproj.CopyComplete
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\obj\Debug\TablePicker.exe
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\UserLogin\TablePicker\obj\Debug\TablePicker.pdb

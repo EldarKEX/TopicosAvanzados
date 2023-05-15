@@ -18,6 +18,8 @@ namespace SqlRentCar
             connection = new SqlConnection(@"Data Source=DESKTOP-CTIDNPU\SQLEXPRESS;Initial Catalog=RENTCAR;Integrated Security=True");
         }
 
+
+        //Actualizar Registro
         public void UpdateRecord(int Id, DateTime DateStart, DateTime DateEnd, Double Amount, string Name, string Cel, string Address, string LastName, int CarId)
         {
             try
@@ -45,6 +47,8 @@ namespace SqlRentCar
             }
         }
 
+
+        //Obtener recor or id;
         public DataRow GetRecordPurchase(int id)
         {
             try
@@ -81,6 +85,9 @@ namespace SqlRentCar
             }
         }
 
+
+
+        //Llenar tabla carro
         public DataTable FillTableCar()
         {
             try
@@ -141,6 +148,9 @@ namespace SqlRentCar
                 MessageBox.Show(e.Message);
             }
         }
+
+
+        //Insertar dentro de Purchase
         public void InsertData(DateTime DateStart, DateTime DateEnd, Double Amount, string Name, string Cel, string Address, string LastName, int Id)
         {
             try
@@ -169,6 +179,7 @@ namespace SqlRentCar
             }
         }
 
+        //Borrar record por id
         public void DeleteRecordId(int id)
         {
             try
@@ -191,6 +202,9 @@ namespace SqlRentCar
             }
         }
 
+
+
+        //Llenar tabla Purchase
         public DataTable FillPurchase()
         {
             try
@@ -218,6 +232,8 @@ namespace SqlRentCar
             }
         } 
         
+
+        //Obtener por filtro
         public DataTable GetByFilter(int id, DateTime dateStart, DateTime dateEnd)
         {
             try
@@ -257,6 +273,9 @@ namespace SqlRentCar
             }
         }
 
+
+
+        //Obtener columna por id
         public DataRow GetNextId()
         {
             try

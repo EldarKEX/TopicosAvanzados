@@ -53,6 +53,7 @@ namespace RentaDeAutos
             this.tbFolio = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnAasignar = new System.Windows.Forms.Button();
+            this.btnHistory = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -267,12 +268,23 @@ namespace RentaDeAutos
             this.btnAasignar.UseVisualStyleBackColor = true;
             this.btnAasignar.Click += new System.EventHandler(this.btnAasignar_Click);
             // 
+            // btnHistory
+            // 
+            this.btnHistory.Location = new System.Drawing.Point(390, 305);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(125, 37);
+            this.btnHistory.TabIndex = 25;
+            this.btnHistory.Text = "Historial";
+            this.btnHistory.UseVisualStyleBackColor = true;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(615, 517);
+            this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.btnAasignar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbFolio);
@@ -334,6 +346,7 @@ namespace RentaDeAutos
         private System.Windows.Forms.TextBox tbFolio;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnAasignar;
+        private System.Windows.Forms.Button btnHistory;
     }
 }
 

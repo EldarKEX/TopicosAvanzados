@@ -27,7 +27,7 @@ namespace RentaDeAutos
         private Thread carGalleryThread;
         private Thread dateStartThread;
         private Thread dateFinalThread;
-        
+
 
         ManualResetEvent _event = new ManualResetEvent(true);
         ManualResetEvent _event1 = new ManualResetEvent(true);
@@ -45,7 +45,7 @@ namespace RentaDeAutos
 
         void InitializeClock()
         {
-            clock = new Clock(false);            
+            clock = new Clock(false);
             clock.TopLevel = false;
             clock.AutoScroll = true;
             clock.Dock = DockStyle.Fill;
@@ -88,8 +88,8 @@ namespace RentaDeAutos
             if (tbDateStart.Text != "" && tbDateFinal.Text != "")
             {
                 Double total = (hourDateFinal.GetDateTime() - hourDateStart.GetDateTime()).TotalDays;
-                
-                if(total <= 0)
+
+                if (total <= 0)
                 {
                     labelError.Text = "La fecha de devolucion debe ser mayor a la fecha de salida";
                     return;
@@ -99,9 +99,9 @@ namespace RentaDeAutos
 
                 if (carGallery.DataCar.Cost != "")
                 {
-                    
+
                     total = total * Double.Parse(carGallery.DataCar.Cost);
-                    tbAmount.Text = String.Format("{0:F2}",total);
+                    tbAmount.Text = String.Format("{0:F2}", total);
                 }
             }
         }
@@ -122,13 +122,13 @@ namespace RentaDeAutos
                         btnCar.Text = "Elegir Auto";
                         btnCar.Tag = -1;
                     }
-               
+
                     _event.Reset();
                     continue;
                 }
 
                 if (carGallery.DataCar.Id == -1 || carGallery.DataCar.Id == previousId)
-                {                   
+                {
                     continue;
                 }
 
@@ -156,12 +156,12 @@ namespace RentaDeAutos
                 _event1.WaitOne();
 
                 if (hourDateStart.IsClosed)
-                {                   
+                {
                     _event1.Reset();
                     continue;
                 }
 
-                
+
 
                 fillTbStart(hourDateStart.GetDate());
                 CalcTotalAmount();
@@ -173,7 +173,7 @@ namespace RentaDeAutos
         void ShowDateFinal()
         {
             _event2.Reset();
-   
+
             while (true)
             {
                 _event2.WaitOne();
@@ -213,7 +213,7 @@ namespace RentaDeAutos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }        
+            }
         }
 
         private void DateStart_Click(object sender, EventArgs e)
@@ -223,7 +223,7 @@ namespace RentaDeAutos
                 hourDateStart = new HourAndDate();
                 hourDateStart.Show();
                 _event1.Set();
-            }catch(Exception ex)
+            } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -231,7 +231,7 @@ namespace RentaDeAutos
 
         private void Main_Load(object sender, EventArgs e)
         {
-    
+
             CheckForIllegalCrossThreadCalls = false;
         }
 
@@ -250,9 +250,9 @@ namespace RentaDeAutos
         }
 
 
-        
-        
 
+
+        //==================================================================================================
         public bool ValidateFields()
         {
             mainClass.Error = "";
@@ -263,8 +263,9 @@ namespace RentaDeAutos
             return true;
         }
 
+        //Guardar Registros
         void SavePurchase()
-        {    
+        {
 
             if (tbFolio.Text != "")
             {
@@ -294,6 +295,7 @@ namespace RentaDeAutos
             );
         }
 
+        //Actualizar registros
         void UpdatePurchase()
         {
 
@@ -336,7 +338,7 @@ namespace RentaDeAutos
                 }
 
                 SavePurchase();
-             
+
 
                 MessageBox.Show("Datos Agregados Correctamente");
             }
@@ -346,6 +348,8 @@ namespace RentaDeAutos
             }
         }
 
+
+        //Si se teclea un folio
         private void tbFolio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
@@ -353,9 +357,10 @@ namespace RentaDeAutos
                 e.Handled = true;
                 return;
             }
-            
+
         }
 
+        //Borra todos los datos
         void EraseData()
         {
             tbDateStart.Text = "";
@@ -368,6 +373,9 @@ namespace RentaDeAutos
             btnCar.Text = "Elegir Auto";
             btnCar.Tag = -1;
         }
+
+
+        //Llenar los datos
         void FillData(DataRow dataRow)
         {
             tbDateStart.Text = dataRow[1].ToString();
@@ -386,6 +394,8 @@ namespace RentaDeAutos
             btnCar.Tag = index;
         }
 
+
+        //Si se cambia el texto del folio
         private void tbFolio_TextChanged(object sender, EventArgs e)
         {
             if (tbFolio.Text == "")
@@ -398,7 +408,7 @@ namespace RentaDeAutos
             DataRow dataRow = new SqlConexionClass().GetRecordPurchase(int.Parse(tbFolio.Text));
 
 
-            if(dataRow == null)
+            if (dataRow == null)
             {
                 if (thereIsUpdate)
                 {
@@ -409,7 +419,7 @@ namespace RentaDeAutos
                 return;
             }
 
-            
+
 
 
             btnSave.Text = "Actualizar datos Compra";
@@ -417,9 +427,10 @@ namespace RentaDeAutos
             FillData(dataRow);
 
 
-            
+
         }
 
+        //Genera un folio en automativco
         void AutoFolio()
         {
             DataRow data = new SqlConexionClass().GetNextId();
@@ -436,6 +447,19 @@ namespace RentaDeAutos
             }
             AutoFolio();
             
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form main = new SubForms.History();
+                main.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
