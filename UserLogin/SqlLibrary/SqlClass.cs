@@ -19,7 +19,7 @@ namespace SqlLibrary
 
         public SqlClass(string server, string dataBase, string user, string password)
         {
-            database = database;
+            database = dataBase;
             sqlConnection = new SqlConnection(ConnectionString(server, dataBase, user, password));
         }
 
@@ -39,7 +39,7 @@ namespace SqlLibrary
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Error de conexion, datos incorrectos");
                 return false;
             }
         }
@@ -70,7 +70,7 @@ namespace SqlLibrary
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Error de conexion, datos incorrectos");
                 return null;
             }
         }
@@ -91,7 +91,7 @@ namespace SqlLibrary
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Error de conexion, datos incorrectos");
                 return null;
             }
         }

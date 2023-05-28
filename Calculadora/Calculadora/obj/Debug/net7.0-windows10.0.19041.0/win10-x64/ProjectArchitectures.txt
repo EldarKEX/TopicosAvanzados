@@ -1,0 +1,1 @@
+C:\Users\Eldar\source\repos\TopicoAvanzadosDeProgramacion\Calculadora\Calculadora\Calculadora.csproj;x64
